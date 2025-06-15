@@ -1,0 +1,157 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CUSTOMER
+  AGENT
+  ADMIN
+}
+
+enum ChatStatus {
+  WAITING
+  ACTIVE
+  CLOSED
+  TRANSFERRED
+}
+
+enum AgentStatusType {
+  AVAILABLE
+  BUSY
+  OFFLINE
+  BREAK
+}
+
+enum MessageType {
+  TEXT
+  IMAGE
+  FILE
+  SYSTEM
+}
+
+model User {
+  id        String   @id @default(cuid())
+  bankingId String   @unique
+  email     String   @unique
+  name      String
+  avatar    String?
+  role      UserRole
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  sentMessages     Message[]
+  chatRooms        UserChatRoom[]
+  agentStatus      AgentStatus?
+  chatRatings      ChatRating[]
+  assignedChats    ChatRoom[]     @relation("AgentAssigned")
+
+  @@map("users")
+}
+
+model ChatRoom {
+  id        String     @id @default(cuid())
+  title     String?
+  status    ChatStatus @default(WAITING)
+  priority  Int        @default(0)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  closedAt  DateTime?
+
+  // Relations
+  messages     Message[]
+  participants UserChatRoom[]
+  assignedTo   User?          @relation("AgentAssigned", fields: [assignedToId], references: [id])
+  assignedToId String?
+  ratings      ChatRating[]
+
+  @@map("chat_rooms")
+}
+
+model Message {
+  id        String      @id @default(cuid())
+  content   String
+  type      MessageType @default(TEXT)
+  fileUrl   String?
+  fileName  String?
+  fileSize  Int?
+  createdAt DateTime    @default(now())
+  editedAt  DateTime?
+  deletedAt DateTime?
+
+  // Relations
+  chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id], onDelete: Cascade)
+  chatRoomId String
+  sender     User     @relation(fields: [senderId], references: [id])
+  senderId   String
+
+  @@map("messages")
+}
+
+model UserChatRoom {
+  id           String    @id @default(cuid())
+  joinedAt     DateTime  @default(now())
+  leftAt       DateTime?
+  lastReadAt   DateTime?
+  unreadCount  Int       @default(0)
+
+  // Relations
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id], onDelete: Cascade)
+  chatRoomId String
+
+  @@unique([userId, chatRoomId])
+  @@map("user_chat_rooms")
+}
+
+model AgentStatus {
+  id            String          @id @default(cuid())
+  status        AgentStatusType @default(OFFLINE)
+  maxChats      Int             @default(5)
+  currentChats  Int             @default(0)
+  lastActiveAt  DateTime        @default(now())
+  statusMessage String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  // Relations
+  agent   User   @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  agentId String @unique
+
+  @@map("agent_status")
+}
+
+model ChatRating {
+  id        String   @id @default(cuid())
+  rating    Int      // 1-5 stars
+  feedback  String?
+  createdAt DateTime @default(now())
+
+  // Relations
+  chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id])
+  chatRoomId String
+  customer   User     @relation(fields: [customerId], references: [id])
+  customerId String
+
+  @@unique([chatRoomId, customerId])
+  @@map("chat_ratings")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@map("sessions")
+}
