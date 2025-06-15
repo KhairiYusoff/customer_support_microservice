@@ -598,11 +598,11 @@ let AuthResolver = class AuthResolver {
 };
 exports.AuthResolver = AuthResolver;
 __decorate([
-    (0, graphql_1.Query)(() => client_1.User),
+    (0, graphql_1.Query)(() => client_1.Prisma.User),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __param(0, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_b = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _b : Object]),
+    __metadata("design:paramtypes", [typeof (_b = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _b : Object]),
     __metadata("design:returntype", typeof (_c = typeof Promise !== "undefined" && Promise) === "function" ? _c : Object)
 ], AuthResolver.prototype, "me", null);
 __decorate([
@@ -610,7 +610,7 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __param(0, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_d = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _d : Object]),
+    __metadata("design:paramtypes", [typeof (_d = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _d : Object]),
     __metadata("design:returntype", typeof (_e = typeof Promise !== "undefined" && Promise) === "function" ? _e : Object)
 ], AuthResolver.prototype, "logout", null);
 __decorate([
@@ -1514,7 +1514,7 @@ __decorate([
     __param(0, (0, current_user_decorator_1.CurrentUser)()),
     __param(1, (0, graphql_1.Args)('status', { nullable: true })),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_d = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _d : Object, typeof (_e = typeof client_1.ChatStatus !== "undefined" && client_1.ChatStatus) === "function" ? _e : Object]),
+    __metadata("design:paramtypes", [typeof (_d = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _d : Object, typeof (_e = typeof client_1.ChatStatus !== "undefined" && client_1.ChatStatus) === "function" ? _e : Object]),
     __metadata("design:returntype", typeof (_f = typeof Promise !== "undefined" && Promise) === "function" ? _f : Object)
 ], ChatResolver.prototype, "myChatRooms", null);
 __decorate([
@@ -1523,7 +1523,7 @@ __decorate([
     __param(0, (0, graphql_1.Args)('id')),
     __param(1, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_g = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _g : Object]),
+    __metadata("design:paramtypes", [String, typeof (_g = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _g : Object]),
     __metadata("design:returntype", typeof (_h = typeof Promise !== "undefined" && Promise) === "function" ? _h : Object)
 ], ChatResolver.prototype, "chatRoom", null);
 __decorate([
@@ -1535,7 +1535,7 @@ __decorate([
     __param(3, (0, graphql_1.Args)('cursor', { nullable: true })),
     __param(4, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Number, Number, String, typeof (_j = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _j : Object]),
+    __metadata("design:paramtypes", [String, Number, Number, String, typeof (_j = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _j : Object]),
     __metadata("design:returntype", typeof (_k = typeof Promise !== "undefined" && Promise) === "function" ? _k : Object)
 ], ChatResolver.prototype, "messages", null);
 __decorate([
@@ -1552,7 +1552,7 @@ __decorate([
     (0, roles_decorator_1.Roles)(client_1.UserRole.AGENT),
     __param(0, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_m = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _m : Object]),
+    __metadata("design:paramtypes", [typeof (_m = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _m : Object]),
     __metadata("design:returntype", typeof (_o = typeof Promise !== "undefined" && Promise) === "function" ? _o : Object)
 ], ChatResolver.prototype, "myAssignedChats", null);
 __decorate([
@@ -1570,7 +1570,7 @@ __decorate([
     __param(0, (0, graphql_1.Args)('agentId', { nullable: true })),
     __param(1, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_q = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _q : Object]),
+    __metadata("design:paramtypes", [String, typeof (_q = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _q : Object]),
     __metadata("design:returntype", typeof (_r = typeof Promise !== "undefined" && Promise) === "function" ? _r : Object)
 ], ChatResolver.prototype, "agentStatus", null);
 __decorate([
@@ -1579,7 +1579,7 @@ __decorate([
     __param(0, (0, graphql_1.Args)('chatRoomId')),
     __param(1, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_s = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _s : Object]),
+    __metadata("design:paramtypes", [String, typeof (_s = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _s : Object]),
     __metadata("design:returntype", typeof (_t = typeof Promise !== "undefined" && Promise) === "function" ? _t : Object)
 ], ChatResolver.prototype, "unreadCount", null);
 __decorate([
@@ -1590,7 +1590,7 @@ __decorate([
     __param(1, (0, graphql_1.Args)('priority', { nullable: true, type: () => common_1.ParseIntPipe })),
     __param(2, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Number, typeof (_u = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _u : Object]),
+    __metadata("design:paramtypes", [String, Number, typeof (_u = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _u : Object]),
     __metadata("design:returntype", typeof (_v = typeof Promise !== "undefined" && Promise) === "function" ? _v : Object)
 ], ChatResolver.prototype, "createChatRoom", null);
 __decorate([
@@ -1599,7 +1599,7 @@ __decorate([
     __param(0, (0, graphql_1.Args)('chatRoomId')),
     __param(1, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_w = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _w : Object]),
+    __metadata("design:paramtypes", [String, typeof (_w = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _w : Object]),
     __metadata("design:returntype", typeof (_x = typeof Promise !== "undefined" && Promise) === "function" ? _x : Object)
 ], ChatResolver.prototype, "joinChatRoom", null);
 __decorate([
@@ -1608,7 +1608,7 @@ __decorate([
     __param(0, (0, graphql_1.Args)('chatRoomId')),
     __param(1, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_y = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _y : Object]),
+    __metadata("design:paramtypes", [String, typeof (_y = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _y : Object]),
     __metadata("design:returntype", typeof (_z = typeof Promise !== "undefined" && Promise) === "function" ? _z : Object)
 ], ChatResolver.prototype, "leaveChatRoom", null);
 __decorate([
@@ -1622,7 +1622,7 @@ __decorate([
     __param(5, (0, graphql_1.Args)('fileSize', { nullable: true, type: () => common_1.ParseIntPipe })),
     __param(6, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, typeof (_0 = typeof client_1.MessageType !== "undefined" && client_1.MessageType) === "function" ? _0 : Object, String, String, Number, typeof (_1 = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _1 : Object]),
+    __metadata("design:paramtypes", [String, String, typeof (_0 = typeof client_1.MessageType !== "undefined" && client_1.MessageType) === "function" ? _0 : Object, String, String, Number, typeof (_1 = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _1 : Object]),
     __metadata("design:returntype", typeof (_2 = typeof Promise !== "undefined" && Promise) === "function" ? _2 : Object)
 ], ChatResolver.prototype, "sendMessage", null);
 __decorate([
@@ -1632,7 +1632,7 @@ __decorate([
     __param(1, (0, graphql_1.Args)('content')),
     __param(2, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, typeof (_3 = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _3 : Object]),
+    __metadata("design:paramtypes", [String, String, typeof (_3 = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _3 : Object]),
     __metadata("design:returntype", typeof (_4 = typeof Promise !== "undefined" && Promise) === "function" ? _4 : Object)
 ], ChatResolver.prototype, "updateMessage", null);
 __decorate([
@@ -1641,7 +1641,7 @@ __decorate([
     __param(0, (0, graphql_1.Args)('messageId')),
     __param(1, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_5 = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _5 : Object]),
+    __metadata("design:paramtypes", [String, typeof (_5 = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _5 : Object]),
     __metadata("design:returntype", typeof (_6 = typeof Promise !== "undefined" && Promise) === "function" ? _6 : Object)
 ], ChatResolver.prototype, "deleteMessage", null);
 __decorate([
@@ -1651,7 +1651,7 @@ __decorate([
     __param(1, (0, graphql_1.Args)('lastReadMessageId', { nullable: true })),
     __param(2, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, typeof (_7 = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _7 : Object]),
+    __metadata("design:paramtypes", [String, String, typeof (_7 = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _7 : Object]),
     __metadata("design:returntype", typeof (_8 = typeof Promise !== "undefined" && Promise) === "function" ? _8 : Object)
 ], ChatResolver.prototype, "markMessagesAsRead", null);
 __decorate([
@@ -1662,7 +1662,7 @@ __decorate([
     __param(1, (0, graphql_1.Args)('agentId', { nullable: true })),
     __param(2, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, typeof (_9 = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _9 : Object]),
+    __metadata("design:paramtypes", [String, String, typeof (_9 = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _9 : Object]),
     __metadata("design:returntype", typeof (_10 = typeof Promise !== "undefined" && Promise) === "function" ? _10 : Object)
 ], ChatResolver.prototype, "assignChatToAgent", null);
 __decorate([
@@ -1673,7 +1673,7 @@ __decorate([
     __param(1, (0, graphql_1.Args)('toAgentId')),
     __param(2, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, typeof (_11 = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _11 : Object]),
+    __metadata("design:paramtypes", [String, String, typeof (_11 = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _11 : Object]),
     __metadata("design:returntype", typeof (_12 = typeof Promise !== "undefined" && Promise) === "function" ? _12 : Object)
 ], ChatResolver.prototype, "transferChat", null);
 __decorate([
@@ -1683,7 +1683,7 @@ __decorate([
     __param(0, (0, graphql_1.Args)('chatRoomId')),
     __param(1, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_13 = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _13 : Object]),
+    __metadata("design:paramtypes", [String, typeof (_13 = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _13 : Object]),
     __metadata("design:returntype", typeof (_14 = typeof Promise !== "undefined" && Promise) === "function" ? _14 : Object)
 ], ChatResolver.prototype, "closeChatRoom", null);
 __decorate([
@@ -1695,7 +1695,7 @@ __decorate([
     __param(2, (0, graphql_1.Args)('maxChats', { nullable: true, type: () => common_1.ParseIntPipe })),
     __param(3, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_15 = typeof client_1.AgentStatusType !== "undefined" && client_1.AgentStatusType) === "function" ? _15 : Object, String, Number, typeof (_16 = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _16 : Object]),
+    __metadata("design:paramtypes", [typeof (_15 = typeof client_1.AgentStatusType !== "undefined" && client_1.AgentStatusType) === "function" ? _15 : Object, String, Number, typeof (_16 = typeof client_1.Prisma !== "undefined" && client_1.Prisma.User) === "function" ? _16 : Object]),
     __metadata("design:returntype", typeof (_17 = typeof Promise !== "undefined" && Promise) === "function" ? _17 : Object)
 ], ChatResolver.prototype, "updateAgentStatus", null);
 __decorate([

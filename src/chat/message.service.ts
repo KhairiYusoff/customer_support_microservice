@@ -1,7 +1,7 @@
 import { Injectable, BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { RedisService } from '../redis/redis.service';
-import { Message, MessageType, User } from '@prisma/client';
+import { Message, MessageType, Prisma } from '@prisma/client';
 
 export interface SendMessageInput {
   chatRoomId: string;

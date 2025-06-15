@@ -2,7 +2,7 @@ import { Injectable, BadRequestException, NotFoundException, ForbiddenException 
 import { PrismaService } from '../prisma/prisma.service';
 import { RedisService } from '../redis/redis.service';
 import { NotificationService } from '../common/services/notification.service';
-import { User, ChatRoom, ChatStatus, UserRole, Prisma } from '@prisma/client';
+import { Prisma, ChatRoom, ChatStatus, UserRole } from '@prisma/client';
 
 export interface CreateChatRoomInput {
   title?: string;

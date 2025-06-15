@@ -3,7 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { PrismaService } from '../prisma/prisma.service';
 import { RedisService } from '../redis/redis.service';
-import { User, UserRole } from '@prisma/client';
+import { Prisma, UserRole } from '@prisma/client';
 
 export interface JwtPayload {
   sub: string;
@@ -24,7 +24,7 @@ export class AuthService {
     private redisService: RedisService,
   ) {}
 
-  async validateUser(payload: JwtPayload): Promise<User> {
+  async validateUser(payload: JwtPayload): Promise<Prisma.User> {
     try {
       // Check if session exists in Redis
       const sessionKey = `session:${payload.sub}`;
@@ -67,7 +67,7 @@ export class AuthService {
     }
   }
 
-  async createSession(user: User, token: string): Promise<void> {
+  async createSession(user: Prisma.User, token: string): Promise<void> {
     const sessionKey = `session:${user.id}`;
     const expiresIn = parseInt(this.configService.get('JWT_EXPIRES_IN', '86400'));
     
@@ -110,7 +110,7 @@ export class AuthService {
     }
   }
 
-  async refreshUserData(bankingId: string): Promise<User> {
+  async refreshUserData(bankingId: string): Promise<Prisma.User> {
     // This would typically call the banking service API
     // For now, we'll just return the existing user
     const user = await this.prisma.user.findUnique({

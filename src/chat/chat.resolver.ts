@@ -8,7 +8,7 @@ import { CurrentUser } from '../common/decorators/current-user.decorator';
 import { ChatService } from './chat.service';
 import { MessageService } from './message.service';
 import { AgentService } from './agent.service';
-import { User, ChatRoom, Message, UserRole, AgentStatus, MessageType, ChatStatus, AgentStatusType } from '@prisma/client';
+import { Prisma, ChatRoom, Message, UserRole, AgentStatus, MessageType, ChatStatus, AgentStatusType } from '@prisma/client';
 
 const pubSub = new PubSub();
 
@@ -25,7 +25,7 @@ export class ChatResolver {
   @Query(() => [ChatRoom])
   @UseGuards(JwtAuthGuard)
   async myChatRooms(
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
     @Args('status', { nullable: true }) status?: ChatStatus,
   ): Promise<ChatRoom[]> {
     return this.chatService.getUserChatRooms(user.id, status);
@@ -35,7 +35,7 @@ export class ChatResolver {
   @UseGuards(JwtAuthGuard)
   async chatRoom(
     @Args('id') id: string,
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
   ): Promise<ChatRoom> {
     return this.chatService.getChatRoom(id, user.id);
   }
@@ -47,7 +47,7 @@ export class ChatResolver {
     @Args('limit', { nullable: true, type: () => ParseIntPipe }) limit?: number,
     @Args('offset', { nullable: true, type: () => ParseIntPipe }) offset?: number,
     @Args('cursor', { nullable: true }) cursor?: string,
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
   ): Promise<Message[]> {
     const result = await this.messageService.getMessages({
       chatRoomId,
@@ -69,7 +69,7 @@ export class ChatResolver {
   @Query(() => [ChatRoom])
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.AGENT)
-  async myAssignedChats(@CurrentUser() user: User): Promise<ChatRoom[]> {
+  async myAssignedChats(@CurrentUser() user: Prisma.User): Promise<ChatRoom[]> {
     return this.agentService.getAgentChats(user.id);
   }
 
@@ -85,7 +85,7 @@ export class ChatResolver {
   @Roles(UserRole.AGENT, UserRole.ADMIN)
   async agentStatus(
     @Args('agentId', { nullable: true }) agentId?: string,
-    @CurrentUser() user?: User,
+    @CurrentUser() user?: Prisma.User,
   ): Promise<AgentStatus | null> {
     const targetAgentId = agentId || user?.id;
     if (!targetAgentId) {
@@ -98,7 +98,7 @@ export class ChatResolver {
   @UseGuards(JwtAuthGuard)
   async unreadCount(
     @Args('chatRoomId') chatRoomId: string,
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
   ): Promise<number> {
     return this.messageService.getUnreadCount(chatRoomId, user.id);
   }
@@ -110,7 +110,7 @@ export class ChatResolver {
   async createChatRoom(
     @Args('title', { nullable: true }) title?: string,
     @Args('priority', { nullable: true, type: () => ParseIntPipe }) priority?: number,
-    @CurrentUser() user?: User,
+    @CurrentUser() user?: Prisma.User,
   ): Promise<ChatRoom> {
     return this.chatService.createChatRoom({
       title,
@@ -123,7 +123,7 @@ export class ChatResolver {
   @UseGuards(JwtAuthGuard)
   async joinChatRoom(
     @Args('chatRoomId') chatRoomId: string,
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
   ): Promise<ChatRoom> {
     const chatRoom = await this.chatService.joinChatRoom({
       chatRoomId,
@@ -146,7 +146,7 @@ export class ChatResolver {
   @UseGuards(JwtAuthGuard)
   async leaveChatRoom(
     @Args('chatRoomId') chatRoomId: string,
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
   ): Promise<boolean> {
     const result = await this.chatService.leaveChatRoom(chatRoomId, user.id);
 
@@ -171,7 +171,7 @@ export class ChatResolver {
     @Args('fileUrl', { nullable: true }) fileUrl?: string,
     @Args('fileName', { nullable: true }) fileName?: string,
     @Args('fileSize', { nullable: true, type: () => ParseIntPipe }) fileSize?: number,
-    @CurrentUser() user?: User,
+    @CurrentUser() user?: Prisma.User,
   ): Promise<Message> {
     const message = await this.messageService.sendMessage({
       chatRoomId,
@@ -196,7 +196,7 @@ export class ChatResolver {
   async updateMessage(
     @Args('messageId') messageId: string,
     @Args('content') content: string,
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
   ): Promise<Message> {
     const message = await this.messageService.updateMessage({
       messageId,
@@ -216,7 +216,7 @@ export class ChatResolver {
   @UseGuards(JwtAuthGuard)
   async deleteMessage(
     @Args('messageId') messageId: string,
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
   ): Promise<boolean> {
     const result = await this.messageService.deleteMessage({
       messageId,
@@ -240,7 +240,7 @@ export class ChatResolver {
   async markMessagesAsRead(
     @Args('chatRoomId') chatRoomId: string,
     @Args('lastReadMessageId', { nullable: true }) lastReadMessageId?: string,
-    @CurrentUser() user?: User,
+    @CurrentUser() user?: Prisma.User,
   ): Promise<boolean> {
     return this.messageService.markMessagesAsRead(chatRoomId, user!.id, lastReadMessageId);
   }
@@ -251,7 +251,7 @@ export class ChatResolver {
   async assignChatToAgent(
     @Args('chatRoomId') chatRoomId: string,
     @Args('agentId', { nullable: true }) agentId?: string,
-    @CurrentUser() user?: User,
+    @CurrentUser() user?: Prisma.User,
   ): Promise<ChatRoom> {
     const targetAgentId = agentId || user?.id;
     if (!targetAgentId) {
@@ -277,7 +277,7 @@ export class ChatResolver {
   async transferChat(
     @Args('chatRoomId') chatRoomId: string,
     @Args('toAgentId') toAgentId: string,
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
   ): Promise<ChatRoom> {
     const chatRoom = await this.chatService.transferChat({
       chatRoomId,
@@ -298,7 +298,7 @@ export class ChatResolver {
   @Roles(UserRole.AGENT, UserRole.ADMIN)
   async closeChatRoom(
     @Args('chatRoomId') chatRoomId: string,
-    @CurrentUser() user: User,
+    @CurrentUser() user: Prisma.User,
   ): Promise<ChatRoom> {
     const chatRoom = await this.chatService.closeChatRoom({
       chatRoomId,
@@ -320,7 +320,7 @@ export class ChatResolver {
     @Args('status') status: AgentStatusType,
     @Args('statusMessage', { nullable: true }) statusMessage?: string,
     @Args('maxChats', { nullable: true, type: () => ParseIntPipe }) maxChats?: number,
-    @CurrentUser() user?: User,
+    @CurrentUser() user?: Prisma.User,
   ): Promise<AgentStatus> {
     const agentStatus = await this.agentService.updateAgentStatus({
       agentId: user!.id,

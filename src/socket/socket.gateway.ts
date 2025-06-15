@@ -18,10 +18,10 @@ import { AgentService } from '../chat/agent.service';
 import { RedisService } from '../redis/redis.service';
 import { NotificationService } from '../common/services/notification.service';
 import { ChatResolver } from '../chat/chat.resolver';
-import { User, MessageType } from '@prisma/client';
+import { Prisma, MessageType } from '@prisma/client';
 
 interface AuthenticatedSocket extends Socket {
-  user?: User;
+  user?: Prisma.User;
 }
 
 interface TypingData {
@@ -60,7 +60,7 @@ export class SocketGateway implements OnGatewayInit, OnGatewayConnection, OnGate
 
   private logger: Logger = new Logger('SocketGateway');
   private userSockets: Map<string, string> = new Map(); // userId -> socketId
-  private socketUsers: Map<string, User> = new Map(); // socketId -> user
+  private socketUsers: Map<string, Prisma.User> = new Map(); // socketId -> user
 
   constructor(
     private jwtService: JwtService,
