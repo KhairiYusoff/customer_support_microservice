@@ -1,11 +1,26 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+/******/ 	var __webpack_modules__ = ([
+/* 0 */,
+/* 1 */
+/***/ ((module) => {
 
-/***/ "./src/app.module.ts":
-/*!***************************!*\
-  !*** ./src/app.module.ts ***!
-  \***************************/
+module.exports = require("@nestjs/core");
+
+/***/ }),
+/* 2 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/common");
+
+/***/ }),
+/* 3 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/config");
+
+/***/ }),
+/* 4 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -17,19 +32,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppModule = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const config_1 = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-const graphql_1 = __webpack_require__(/*! @nestjs/graphql */ "@nestjs/graphql");
-const apollo_1 = __webpack_require__(/*! @nestjs/apollo */ "@nestjs/apollo");
-const throttler_1 = __webpack_require__(/*! @nestjs/throttler */ "@nestjs/throttler");
-const schedule_1 = __webpack_require__(/*! @nestjs/schedule */ "@nestjs/schedule");
-const path_1 = __webpack_require__(/*! path */ "path");
-const prisma_module_1 = __webpack_require__(/*! ./prisma/prisma.module */ "./src/prisma/prisma.module.ts");
-const redis_module_1 = __webpack_require__(/*! ./redis/redis.module */ "./src/redis/redis.module.ts");
-const auth_module_1 = __webpack_require__(/*! ./auth/auth.module */ "./src/auth/auth.module.ts");
-const chat_module_1 = __webpack_require__(/*! ./chat/chat.module */ "./src/chat/chat.module.ts");
-const socket_module_1 = __webpack_require__(/*! ./socket/socket.module */ "./src/socket/socket.module.ts");
-const common_module_1 = __webpack_require__(/*! ./common/common.module */ "./src/common/common.module.ts");
+const common_1 = __webpack_require__(2);
+const config_1 = __webpack_require__(3);
+const graphql_1 = __webpack_require__(5);
+const apollo_1 = __webpack_require__(6);
+const throttler_1 = __webpack_require__(7);
+const schedule_1 = __webpack_require__(8);
+const path_1 = __webpack_require__(9);
+const prisma_module_1 = __webpack_require__(10);
+const redis_module_1 = __webpack_require__(13);
+const auth_module_1 = __webpack_require__(16);
+const chat_module_1 = __webpack_require__(25);
+const socket_module_1 = __webpack_require__(40);
+const common_module_1 = __webpack_require__(34);
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -76,11 +91,284 @@ exports.AppModule = AppModule = __decorate([
 
 
 /***/ }),
+/* 5 */
+/***/ ((module) => {
 
-/***/ "./src/auth/auth.module.ts":
-/*!*********************************!*\
-  !*** ./src/auth/auth.module.ts ***!
-  \*********************************/
+module.exports = require("@nestjs/graphql");
+
+/***/ }),
+/* 6 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/apollo");
+
+/***/ }),
+/* 7 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/throttler");
+
+/***/ }),
+/* 8 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/schedule");
+
+/***/ }),
+/* 9 */
+/***/ ((module) => {
+
+module.exports = require("path");
+
+/***/ }),
+/* 10 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PrismaModule = void 0;
+const common_1 = __webpack_require__(2);
+const prisma_service_1 = __webpack_require__(11);
+let PrismaModule = class PrismaModule {
+};
+exports.PrismaModule = PrismaModule;
+exports.PrismaModule = PrismaModule = __decorate([
+    (0, common_1.Module)({
+        providers: [prisma_service_1.PrismaService],
+        exports: [prisma_service_1.PrismaService],
+    })
+], PrismaModule);
+
+
+/***/ }),
+/* 11 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PrismaService = void 0;
+const common_1 = __webpack_require__(2);
+const client_1 = __webpack_require__(12);
+let PrismaService = class PrismaService extends client_1.PrismaClient {
+    async onModuleInit() {
+        await this.$connect();
+    }
+    async onModuleDestroy() {
+        await this.$disconnect();
+    }
+    async enableShutdownHooks(app) {
+        this.$on('beforeExit', async () => {
+            await app.close();
+        });
+    }
+    async cleanDatabase() {
+        if (process.env.NODE_ENV === 'production')
+            return;
+        const tablenames = await this.$queryRaw `
+      SELECT tablename FROM pg_tables WHERE schemaname='public'
+    `;
+        const tables = tablenames
+            .map(({ tablename }) => tablename)
+            .filter((name) => name !== '_prisma_migrations')
+            .map((name) => `"public"."${name}"`)
+            .join(', ');
+        try {
+            await this.$executeRawUnsafe(`TRUNCATE TABLE ${tables} CASCADE;`);
+        }
+        catch (error) {
+            console.log({ error });
+        }
+    }
+};
+exports.PrismaService = PrismaService;
+exports.PrismaService = PrismaService = __decorate([
+    (0, common_1.Injectable)()
+], PrismaService);
+
+
+/***/ }),
+/* 12 */
+/***/ ((module) => {
+
+module.exports = require("@prisma/client");
+
+/***/ }),
+/* 13 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RedisModule = void 0;
+const common_1 = __webpack_require__(2);
+const config_1 = __webpack_require__(3);
+const redis_service_1 = __webpack_require__(14);
+let RedisModule = class RedisModule {
+};
+exports.RedisModule = RedisModule;
+exports.RedisModule = RedisModule = __decorate([
+    (0, common_1.Module)({
+        providers: [redis_service_1.RedisService, config_1.ConfigService],
+        exports: [redis_service_1.RedisService],
+    })
+], RedisModule);
+
+
+/***/ }),
+/* 14 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RedisService = void 0;
+const common_1 = __webpack_require__(2);
+const config_1 = __webpack_require__(3);
+const ioredis_1 = __webpack_require__(15);
+let RedisService = class RedisService {
+    constructor(configService) {
+        this.configService = configService;
+        const redisConfig = {
+            host: this.configService.get('REDIS_HOST', 'localhost'),
+            port: parseInt(this.configService.get('REDIS_PORT', '6379')),
+            password: this.configService.get('REDIS_PASSWORD'),
+            retryDelayOnFailover: 100,
+            maxRetriesPerRequest: 3,
+        };
+        this.client = new ioredis_1.default(redisConfig);
+        this.subscriber = new ioredis_1.default(redisConfig);
+        this.publisher = new ioredis_1.default(redisConfig);
+        this.client.on('error', (err) => {
+            console.error('Redis Client Error:', err);
+        });
+        this.client.on('connect', () => {
+            console.log('✅ Connected to Redis');
+        });
+    }
+    onModuleDestroy() {
+        this.client.disconnect();
+        this.subscriber.disconnect();
+        this.publisher.disconnect();
+    }
+    getClient() {
+        return this.client;
+    }
+    getSubscriber() {
+        return this.subscriber;
+    }
+    getPublisher() {
+        return this.publisher;
+    }
+    async setSession(key, value, ttl) {
+        const serialized = JSON.stringify(value);
+        if (ttl) {
+            await this.client.setex(key, ttl, serialized);
+        }
+        else {
+            await this.client.set(key, serialized);
+        }
+    }
+    async getSession(key) {
+        const value = await this.client.get(key);
+        return value ? JSON.parse(value) : null;
+    }
+    async deleteSession(key) {
+        await this.client.del(key);
+    }
+    async set(key, value, ttl) {
+        const serialized = JSON.stringify(value);
+        if (ttl) {
+            await this.client.setex(key, ttl, serialized);
+        }
+        else {
+            await this.client.set(key, serialized);
+        }
+    }
+    async get(key) {
+        const value = await this.client.get(key);
+        return value ? JSON.parse(value) : null;
+    }
+    async del(key) {
+        await this.client.del(key);
+    }
+    async lpush(key, ...values) {
+        return this.client.lpush(key, ...values);
+    }
+    async lrange(key, start, stop) {
+        return this.client.lrange(key, start, stop);
+    }
+    async ltrim(key, start, stop) {
+        await this.client.ltrim(key, start, stop);
+    }
+    async publish(channel, message) {
+        return this.publisher.publish(channel, message);
+    }
+    async subscribe(channel, callback) {
+        await this.subscriber.subscribe(channel);
+        this.subscriber.on('message', (receivedChannel, message) => {
+            if (receivedChannel === channel) {
+                callback(message);
+            }
+        });
+    }
+    async unsubscribe(channel) {
+        await this.subscriber.unsubscribe(channel);
+    }
+    async addToSet(key, value) {
+        await this.client.sadd(key, value);
+    }
+    async removeFromSet(key, value) {
+        await this.client.srem(key, value);
+    }
+    async getSetMembers(key) {
+        return this.client.smembers(key);
+    }
+    async isSetMember(key, value) {
+        const result = await this.client.sismember(key, value);
+        return result === 1;
+    }
+};
+exports.RedisService = RedisService;
+exports.RedisService = RedisService = __decorate([
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [typeof (_a = typeof config_1.ConfigService !== "undefined" && config_1.ConfigService) === "function" ? _a : Object])
+], RedisService);
+
+
+/***/ }),
+/* 15 */
+/***/ ((module) => {
+
+module.exports = require("ioredis");
+
+/***/ }),
+/* 16 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -92,16 +380,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthModule = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const config_1 = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-const jwt_1 = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
-const passport_1 = __webpack_require__(/*! @nestjs/passport */ "@nestjs/passport");
-const auth_service_1 = __webpack_require__(/*! ./auth.service */ "./src/auth/auth.service.ts");
-const auth_resolver_1 = __webpack_require__(/*! ./auth.resolver */ "./src/auth/auth.resolver.ts");
-const jwt_strategy_1 = __webpack_require__(/*! ./strategies/jwt.strategy */ "./src/auth/strategies/jwt.strategy.ts");
-const jwt_auth_guard_1 = __webpack_require__(/*! ./guards/jwt-auth.guard */ "./src/auth/guards/jwt-auth.guard.ts");
-const prisma_module_1 = __webpack_require__(/*! ../prisma/prisma.module */ "./src/prisma/prisma.module.ts");
-const redis_module_1 = __webpack_require__(/*! ../redis/redis.module */ "./src/redis/redis.module.ts");
+const common_1 = __webpack_require__(2);
+const config_1 = __webpack_require__(3);
+const jwt_1 = __webpack_require__(17);
+const passport_1 = __webpack_require__(18);
+const auth_service_1 = __webpack_require__(19);
+const auth_resolver_1 = __webpack_require__(20);
+const jwt_strategy_1 = __webpack_require__(23);
+const jwt_auth_guard_1 = __webpack_require__(21);
+const prisma_module_1 = __webpack_require__(10);
+const redis_module_1 = __webpack_require__(13);
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
@@ -129,87 +417,19 @@ exports.AuthModule = AuthModule = __decorate([
 
 
 /***/ }),
+/* 17 */
+/***/ ((module) => {
 
-/***/ "./src/auth/auth.resolver.ts":
-/*!***********************************!*\
-  !*** ./src/auth/auth.resolver.ts ***!
-  \***********************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-var _a, _b, _c, _d, _e, _f;
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AuthResolver = void 0;
-const graphql_1 = __webpack_require__(/*! @nestjs/graphql */ "@nestjs/graphql");
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const auth_service_1 = __webpack_require__(/*! ./auth.service */ "./src/auth/auth.service.ts");
-const jwt_auth_guard_1 = __webpack_require__(/*! ./guards/jwt-auth.guard */ "./src/auth/guards/jwt-auth.guard.ts");
-const current_user_decorator_1 = __webpack_require__(/*! ../common/decorators/current-user.decorator */ "./src/common/decorators/current-user.decorator.ts");
-const client_1 = __webpack_require__(/*! @prisma/client */ "@prisma/client");
-let AuthResolver = class AuthResolver {
-    constructor(authService) {
-        this.authService = authService;
-    }
-    async me(user) {
-        return user;
-    }
-    async logout(user) {
-        await this.authService.revokeSession(user.id);
-        await this.authService.setUserOffline(user.id);
-        return true;
-    }
-    async onlineUsers() {
-        return this.authService.getOnlineUsers();
-    }
-};
-exports.AuthResolver = AuthResolver;
-__decorate([
-    (0, graphql_1.Query)(() => client_1.User),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
-    __param(0, (0, current_user_decorator_1.CurrentUser)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_b = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _b : Object]),
-    __metadata("design:returntype", typeof (_c = typeof Promise !== "undefined" && Promise) === "function" ? _c : Object)
-], AuthResolver.prototype, "me", null);
-__decorate([
-    (0, graphql_1.Mutation)(() => Boolean),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
-    __param(0, (0, current_user_decorator_1.CurrentUser)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_d = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _d : Object]),
-    __metadata("design:returntype", typeof (_e = typeof Promise !== "undefined" && Promise) === "function" ? _e : Object)
-], AuthResolver.prototype, "logout", null);
-__decorate([
-    (0, graphql_1.Query)(() => [String]),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", typeof (_f = typeof Promise !== "undefined" && Promise) === "function" ? _f : Object)
-], AuthResolver.prototype, "onlineUsers", null);
-exports.AuthResolver = AuthResolver = __decorate([
-    (0, graphql_1.Resolver)(),
-    __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" ? _a : Object])
-], AuthResolver);
-
+module.exports = require("@nestjs/jwt");
 
 /***/ }),
+/* 18 */
+/***/ ((module) => {
 
-/***/ "./src/auth/auth.service.ts":
-/*!**********************************!*\
-  !*** ./src/auth/auth.service.ts ***!
-  \**********************************/
+module.exports = require("@nestjs/passport");
+
+/***/ }),
+/* 19 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -225,11 +445,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var _a, _b, _c, _d;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthService = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const jwt_1 = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
-const config_1 = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-const prisma_service_1 = __webpack_require__(/*! ../prisma/prisma.service */ "./src/prisma/prisma.service.ts");
-const redis_service_1 = __webpack_require__(/*! ../redis/redis.service */ "./src/redis/redis.service.ts");
+const common_1 = __webpack_require__(2);
+const jwt_1 = __webpack_require__(17);
+const config_1 = __webpack_require__(3);
+const prisma_service_1 = __webpack_require__(11);
+const redis_service_1 = __webpack_require__(14);
 let AuthService = class AuthService {
     constructor(prisma, jwtService, configService, redisService) {
         this.prisma = prisma;
@@ -335,11 +555,79 @@ exports.AuthService = AuthService = __decorate([
 
 
 /***/ }),
+/* 20 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-/***/ "./src/auth/guards/jwt-auth.guard.ts":
-/*!*******************************************!*\
-  !*** ./src/auth/guards/jwt-auth.guard.ts ***!
-  \*******************************************/
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var _a, _b, _c, _d, _e, _f;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuthResolver = void 0;
+const graphql_1 = __webpack_require__(5);
+const common_1 = __webpack_require__(2);
+const auth_service_1 = __webpack_require__(19);
+const jwt_auth_guard_1 = __webpack_require__(21);
+const current_user_decorator_1 = __webpack_require__(22);
+const client_1 = __webpack_require__(12);
+let AuthResolver = class AuthResolver {
+    constructor(authService) {
+        this.authService = authService;
+    }
+    async me(user) {
+        return user;
+    }
+    async logout(user) {
+        await this.authService.revokeSession(user.id);
+        await this.authService.setUserOffline(user.id);
+        return true;
+    }
+    async onlineUsers() {
+        return this.authService.getOnlineUsers();
+    }
+};
+exports.AuthResolver = AuthResolver;
+__decorate([
+    (0, graphql_1.Query)(() => client_1.User),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    __param(0, (0, current_user_decorator_1.CurrentUser)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [typeof (_b = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _b : Object]),
+    __metadata("design:returntype", typeof (_c = typeof Promise !== "undefined" && Promise) === "function" ? _c : Object)
+], AuthResolver.prototype, "me", null);
+__decorate([
+    (0, graphql_1.Mutation)(() => Boolean),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    __param(0, (0, current_user_decorator_1.CurrentUser)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [typeof (_d = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _d : Object]),
+    __metadata("design:returntype", typeof (_e = typeof Promise !== "undefined" && Promise) === "function" ? _e : Object)
+], AuthResolver.prototype, "logout", null);
+__decorate([
+    (0, graphql_1.Query)(() => [String]),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", typeof (_f = typeof Promise !== "undefined" && Promise) === "function" ? _f : Object)
+], AuthResolver.prototype, "onlineUsers", null);
+exports.AuthResolver = AuthResolver = __decorate([
+    (0, graphql_1.Resolver)(),
+    __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" ? _a : Object])
+], AuthResolver);
+
+
+/***/ }),
+/* 21 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -351,9 +639,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.JwtAuthGuard = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const passport_1 = __webpack_require__(/*! @nestjs/passport */ "@nestjs/passport");
-const graphql_1 = __webpack_require__(/*! @nestjs/graphql */ "@nestjs/graphql");
+const common_1 = __webpack_require__(2);
+const passport_1 = __webpack_require__(18);
+const graphql_1 = __webpack_require__(5);
 let JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
     getRequest(context) {
         const ctx = graphql_1.GqlExecutionContext.create(context);
@@ -367,11 +655,22 @@ exports.JwtAuthGuard = JwtAuthGuard = __decorate([
 
 
 /***/ }),
+/* 22 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-/***/ "./src/auth/strategies/jwt.strategy.ts":
-/*!*********************************************!*\
-  !*** ./src/auth/strategies/jwt.strategy.ts ***!
-  \*********************************************/
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CurrentUser = void 0;
+const common_1 = __webpack_require__(2);
+const graphql_1 = __webpack_require__(5);
+exports.CurrentUser = (0, common_1.createParamDecorator)((data, context) => {
+    const ctx = graphql_1.GqlExecutionContext.create(context);
+    return ctx.getContext().req.user;
+});
+
+
+/***/ }),
+/* 23 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -387,11 +686,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.JwtStrategy = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const passport_1 = __webpack_require__(/*! @nestjs/passport */ "@nestjs/passport");
-const passport_jwt_1 = __webpack_require__(/*! passport-jwt */ "passport-jwt");
-const config_1 = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-const auth_service_1 = __webpack_require__(/*! ../auth.service */ "./src/auth/auth.service.ts");
+const common_1 = __webpack_require__(2);
+const passport_1 = __webpack_require__(18);
+const passport_jwt_1 = __webpack_require__(24);
+const config_1 = __webpack_require__(3);
+const auth_service_1 = __webpack_require__(19);
 let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(passport_jwt_1.Strategy, 'jwt') {
     constructor(configService, authService) {
         super({
@@ -418,11 +717,47 @@ exports.JwtStrategy = JwtStrategy = __decorate([
 
 
 /***/ }),
+/* 24 */
+/***/ ((module) => {
 
-/***/ "./src/chat/agent.service.ts":
-/*!***********************************!*\
-  !*** ./src/chat/agent.service.ts ***!
-  \***********************************/
+module.exports = require("passport-jwt");
+
+/***/ }),
+/* 25 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ChatModule = void 0;
+const common_1 = __webpack_require__(2);
+const chat_service_1 = __webpack_require__(26);
+const chat_resolver_1 = __webpack_require__(28);
+const message_service_1 = __webpack_require__(32);
+const agent_service_1 = __webpack_require__(33);
+const prisma_module_1 = __webpack_require__(10);
+const redis_module_1 = __webpack_require__(13);
+const auth_module_1 = __webpack_require__(16);
+const common_module_1 = __webpack_require__(34);
+let ChatModule = class ChatModule {
+};
+exports.ChatModule = ChatModule;
+exports.ChatModule = ChatModule = __decorate([
+    (0, common_1.Module)({
+        imports: [prisma_module_1.PrismaModule, redis_module_1.RedisModule, auth_module_1.AuthModule, common_module_1.CommonModule],
+        providers: [chat_service_1.ChatService, chat_resolver_1.ChatResolver, message_service_1.MessageService, agent_service_1.AgentService],
+        exports: [chat_service_1.ChatService, message_service_1.MessageService, agent_service_1.AgentService],
+    })
+], ChatModule);
+
+
+/***/ }),
+/* 26 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -437,158 +772,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AgentService = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const prisma_service_1 = __webpack_require__(/*! ../prisma/prisma.service */ "./src/prisma/prisma.service.ts");
-const redis_service_1 = __webpack_require__(/*! ../redis/redis.service */ "./src/redis/redis.service.ts");
-const notification_service_1 = __webpack_require__(/*! ../common/services/notification.service */ "./src/common/services/notification.service.ts");
-const client_1 = __webpack_require__(/*! @prisma/client */ "@prisma/client");
-let AgentService = class AgentService {
+exports.ChatService = void 0;
+const common_1 = __webpack_require__(2);
+const prisma_service_1 = __webpack_require__(11);
+const redis_service_1 = __webpack_require__(14);
+const notification_service_1 = __webpack_require__(27);
+const client_1 = __webpack_require__(12);
+let ChatService = class ChatService {
     constructor(prisma, redisService, notificationService) {
         this.prisma = prisma;
         this.redisService = redisService;
         this.notificationService = notificationService;
     }
-    async updateAgentStatus(input) {
+    async createChatRoom(input) {
         try {
-            const { agentId, status, statusMessage, maxChats } = input;
-            const agent = await this.prisma.user.findUnique({
-                where: { id: agentId },
+            const customer = await this.prisma.user.findUnique({
+                where: { id: input.customerId },
             });
-            if (!agent || agent.role !== client_1.UserRole.AGENT) {
-                throw new common_1.BadRequestException('Invalid agent');
+            if (!customer || customer.role !== client_1.UserRole.CUSTOMER) {
+                throw new common_1.BadRequestException('Invalid customer');
             }
-            let agentStatus = await this.prisma.agentStatus.findUnique({
-                where: { agentId },
-            });
-            if (!agentStatus) {
-                agentStatus = await this.prisma.agentStatus.create({
-                    data: {
-                        agentId,
-                        status,
-                        statusMessage,
-                        maxChats: maxChats || 5,
-                        lastActiveAt: new Date(),
-                    },
-                });
-            }
-            else {
-                agentStatus = await this.prisma.agentStatus.update({
-                    where: { agentId },
-                    data: {
-                        status,
-                        statusMessage,
-                        maxChats: maxChats !== undefined ? maxChats : agentStatus.maxChats,
-                        lastActiveAt: new Date(),
-                    },
-                });
-            }
-            await this.redisService.set(`agent:${agentId}:status`, agentStatus, 3600);
-            if (status === client_1.AgentStatusType.OFFLINE) {
-                await this.redisService.removeFromSet('online_agents', agentId);
-            }
-            else {
-                await this.redisService.addToSet('online_agents', agentId);
-            }
-            if (status === client_1.AgentStatusType.AVAILABLE) {
-                await this.tryAssignWaitingChats(agentId);
-            }
-            return agentStatus;
-        }
-        catch (error) {
-            if (error instanceof common_1.BadRequestException) {
-                throw error;
-            }
-            throw new common_1.BadRequestException(`Failed to update agent status: ${error.message}`);
-        }
-    }
-    async getAgentStatus(agentId) {
-        try {
-            const cached = await this.redisService.get(`agent:${agentId}:status`);
-            if (cached) {
-                return cached;
-            }
-            const agentStatus = await this.prisma.agentStatus.findUnique({
-                where: { agentId },
-                include: {
-                    agent: {
-                        select: {
-                            id: true,
-                            name: true,
-                            email: true,
-                            avatar: true,
-                        },
-                    },
-                },
-            });
-            if (agentStatus) {
-                await this.redisService.set(`agent:${agentId}:status`, agentStatus, 3600);
-            }
-            return agentStatus;
-        }
-        catch (error) {
-            console.error('Failed to get agent status:', error);
-            return null;
-        }
-    }
-    async getAvailableAgents() {
-        try {
-            const availableAgents = await this.prisma.agentStatus.findMany({
-                where: {
-                    status: client_1.AgentStatusType.AVAILABLE,
-                },
-                include: {
-                    agent: {
-                        select: {
-                            id: true,
-                            name: true,
-                            email: true,
-                            avatar: true,
-                        },
-                    },
-                },
-                orderBy: [
-                    { currentChats: 'asc' },
-                    { lastActiveAt: 'desc' },
-                ],
-            });
-            return availableAgents.filter(agent => agent.currentChats < agent.maxChats);
-        }
-        catch (error) {
-            throw new common_1.BadRequestException(`Failed to get available agents: ${error.message}`);
-        }
-    }
-    async assignChatToAgent(input) {
-        try {
-            const { chatRoomId, agentId } = input;
-            const chatRoom = await this.prisma.chatRoom.findUnique({
-                where: { id: chatRoomId },
-                include: {
-                    participants: {
-                        include: {
-                            user: true,
-                        },
-                    },
-                },
-            });
-            if (!chatRoom) {
-                throw new common_1.NotFoundException('Chat room not found');
-            }
-            if (chatRoom.status !== client_1.ChatStatus.WAITING) {
-                throw new common_1.BadRequestException('Chat is not waiting for assignment');
-            }
-            const agentStatus = await this.getAgentStatus(agentId);
-            if (!agentStatus || agentStatus.status !== client_1.AgentStatusType.AVAILABLE) {
-                throw new common_1.BadRequestException('Agent is not available');
-            }
-            if (agentStatus.currentChats >= agentStatus.maxChats) {
-                throw new common_1.BadRequestException('Agent has reached maximum chat capacity');
-            }
-            const updatedChatRoom = await this.prisma.chatRoom.update({
-                where: { id: chatRoomId },
+            const chatRoom = await this.prisma.chatRoom.create({
                 data: {
-                    assignedToId: agentId,
-                    status: client_1.ChatStatus.ACTIVE,
+                    title: input.title || `Support Chat - ${customer.name}`,
+                    status: client_1.ChatStatus.WAITING,
+                    priority: input.priority || 0,
+                    participants: {
+                        create: {
+                            userId: input.customerId,
+                            joinedAt: new Date(),
+                        },
+                    },
                 },
                 include: {
                     participants: {
@@ -599,58 +813,269 @@ let AgentService = class AgentService {
                     assignedTo: true,
                 },
             });
-            await this.prisma.userChatRoom.create({
-                data: {
-                    userId: agentId,
-                    chatRoomId,
-                    joinedAt: new Date(),
+            await this.addToAgentQueue(chatRoom.id);
+            await this.notifyAvailableAgents(chatRoom);
+            await this.redisService.set(`chat:${chatRoom.id}`, chatRoom, 3600);
+            return chatRoom;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(`Failed to create chat room: ${error.message}`);
+        }
+    }
+    async getChatRoom(id, userId) {
+        try {
+            const cached = await this.redisService.get(`chat:${id}`);
+            if (cached) {
+                if (await this.userHasAccessToChat(id, userId)) {
+                    return cached;
+                }
+                throw new common_1.ForbiddenException('Access denied to this chat');
+            }
+            const chatRoom = await this.prisma.chatRoom.findUnique({
+                where: { id },
+                include: {
+                    participants: {
+                        include: {
+                            user: true,
+                        },
+                    },
+                    assignedTo: true,
+                    messages: {
+                        orderBy: { createdAt: 'desc' },
+                        take: 50,
+                        include: {
+                            sender: true,
+                        },
+                    },
                 },
             });
-            await this.prisma.agentStatus.update({
-                where: { agentId },
-                data: {
-                    currentChats: {
-                        increment: 1,
+            if (!chatRoom) {
+                throw new common_1.NotFoundException('Chat room not found');
+            }
+            if (!(await this.userHasAccessToChat(id, userId))) {
+                throw new common_1.ForbiddenException('Access denied to this chat');
+            }
+            await this.redisService.set(`chat:${id}`, chatRoom, 3600);
+            return chatRoom;
+        }
+        catch (error) {
+            if (error instanceof common_1.NotFoundException || error instanceof common_1.ForbiddenException) {
+                throw error;
+            }
+            throw new common_1.BadRequestException(`Failed to get chat room: ${error.message}`);
+        }
+    }
+    async getUserChatRooms(userId, status) {
+        try {
+            const whereClause = {
+                participants: {
+                    some: {
+                        userId,
                     },
+                },
+            };
+            if (status) {
+                whereClause.status = status;
+            }
+            const chatRooms = await this.prisma.chatRoom.findMany({
+                where: whereClause,
+                include: {
+                    participants: {
+                        include: {
+                            user: true,
+                        },
+                    },
+                    assignedTo: true,
+                    messages: {
+                        orderBy: { createdAt: 'desc' },
+                        take: 1,
+                        include: {
+                            sender: true,
+                        },
+                    },
+                },
+                orderBy: { updatedAt: 'desc' },
+            });
+            return chatRooms;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(`Failed to get user chat rooms: ${error.message}`);
+        }
+    }
+    async joinChatRoom(input) {
+        try {
+            const { chatRoomId, userId } = input;
+            const existingParticipant = await this.prisma.userChatRoom.findUnique({
+                where: {
+                    userId_chatRoomId: {
+                        userId,
+                        chatRoomId,
+                    },
+                },
+            });
+            if (existingParticipant && !existingParticipant.leftAt) {
+                throw new common_1.BadRequestException('User already in chat room');
+            }
+            if (existingParticipant) {
+                await this.prisma.userChatRoom.update({
+                    where: { id: existingParticipant.id },
+                    data: {
+                        leftAt: null,
+                        joinedAt: new Date(),
+                        unreadCount: 0,
+                    },
+                });
+            }
+            else {
+                await this.prisma.userChatRoom.create({
+                    data: {
+                        userId,
+                        chatRoomId,
+                        joinedAt: new Date(),
+                    },
+                });
+            }
+            await this.redisService.del(`chat:${chatRoomId}`);
+            const chatRoom = await this.getChatRoom(chatRoomId, userId);
+            return chatRoom;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(`Failed to join chat room: ${error.message}`);
+        }
+    }
+    async leaveChatRoom(chatRoomId, userId) {
+        try {
+            const participant = await this.prisma.userChatRoom.findUnique({
+                where: {
+                    userId_chatRoomId: {
+                        userId,
+                        chatRoomId,
+                    },
+                },
+            });
+            if (!participant) {
+                throw new common_1.NotFoundException('User not in chat room');
+            }
+            await this.prisma.userChatRoom.update({
+                where: { id: participant.id },
+                data: {
+                    leftAt: new Date(),
+                },
+            });
+            await this.redisService.del(`chat:${chatRoomId}`);
+            return true;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(`Failed to leave chat room: ${error.message}`);
+        }
+    }
+    async closeChatRoom(input) {
+        try {
+            const { chatRoomId, userId } = input;
+            const chatRoom = await this.prisma.chatRoom.findUnique({
+                where: { id: chatRoomId },
+                include: {
+                    assignedTo: true,
+                    participants: true,
+                },
+            });
+            if (!chatRoom) {
+                throw new common_1.NotFoundException('Chat room not found');
+            }
+            const user = await this.prisma.user.findUnique({
+                where: { id: userId },
+            });
+            if (user?.role !== client_1.UserRole.ADMIN &&
+                chatRoom.assignedToId !== userId) {
+                throw new common_1.ForbiddenException('Only assigned agent or admin can close chat');
+            }
+            const updatedChatRoom = await this.prisma.chatRoom.update({
+                where: { id: chatRoomId },
+                data: {
+                    status: client_1.ChatStatus.CLOSED,
+                    closedAt: new Date(),
+                },
+                include: {
+                    participants: {
+                        include: {
+                            user: true,
+                        },
+                    },
+                    assignedTo: true,
                 },
             });
             await this.removeFromAgentQueue(chatRoomId);
             await this.redisService.del(`chat:${chatRoomId}`);
-            await this.redisService.del(`agent:${agentId}:status`);
-            await this.notificationService.sendNotification({
-                userId: agentId,
-                type: 'CHAT_ASSIGNED',
-                title: 'Chat Assigned',
-                message: `New chat assigned from ${updatedChatRoom.participants?.[0]?.user?.name || 'Customer'}`,
-                data: { chatRoomId },
-            });
-            const customer = updatedChatRoom.participants?.find(p => p.user.role === client_1.UserRole.CUSTOMER);
-            if (customer) {
-                await this.notificationService.sendNotification({
-                    userId: customer.userId,
-                    type: 'AGENT_ASSIGNED',
-                    title: 'Agent Assigned',
-                    message: `${updatedChatRoom.assignedTo?.name} is now helping you`,
-                    data: { chatRoomId, agentName: updatedChatRoom.assignedTo?.name },
-                });
-            }
+            await this.notifyChatClosed(updatedChatRoom);
             return updatedChatRoom;
         }
         catch (error) {
-            if (error instanceof common_1.NotFoundException || error instanceof common_1.BadRequestException) {
+            if (error instanceof common_1.NotFoundException || error instanceof common_1.ForbiddenException) {
                 throw error;
             }
-            throw new common_1.BadRequestException(`Failed to assign chat to agent: ${error.message}`);
+            throw new common_1.BadRequestException(`Failed to close chat room: ${error.message}`);
         }
     }
-    async getAgentChats(agentId) {
+    async transferChat(input) {
         try {
-            const agentChats = await this.prisma.chatRoom.findMany({
-                where: {
-                    assignedToId: agentId,
-                    status: {
-                        in: [client_1.ChatStatus.ACTIVE, client_1.ChatStatus.TRANSFERRED],
+            const { chatRoomId, fromAgentId, toAgentId } = input;
+            const chatRoom = await this.prisma.chatRoom.findUnique({
+                where: { id: chatRoomId },
+                include: {
+                    assignedTo: true,
+                },
+            });
+            if (!chatRoom) {
+                throw new common_1.NotFoundException('Chat room not found');
+            }
+            if (chatRoom.assignedToId !== fromAgentId) {
+                throw new common_1.ForbiddenException('Only assigned agent can transfer chat');
+            }
+            const targetAgent = await this.prisma.user.findUnique({
+                where: { id: toAgentId },
+                include: {
+                    agentStatus: true,
+                },
+            });
+            if (!targetAgent || targetAgent.role !== client_1.UserRole.AGENT) {
+                throw new common_1.BadRequestException('Invalid target agent');
+            }
+            if (targetAgent.agentStatus?.status !== 'AVAILABLE') {
+                throw new common_1.BadRequestException('Target agent is not available');
+            }
+            const updatedChatRoom = await this.prisma.chatRoom.update({
+                where: { id: chatRoomId },
+                data: {
+                    assignedToId: toAgentId,
+                    status: client_1.ChatStatus.TRANSFERRED,
+                },
+                include: {
+                    participants: {
+                        include: {
+                            user: true,
+                        },
                     },
+                    assignedTo: true,
+                },
+            });
+            await this.updateAgentChatCount(fromAgentId, -1);
+            await this.updateAgentChatCount(toAgentId, 1);
+            await this.redisService.del(`chat:${chatRoomId}`);
+            await this.notifyChatTransferred(updatedChatRoom, fromAgentId, toAgentId);
+            return updatedChatRoom;
+        }
+        catch (error) {
+            if (error instanceof common_1.NotFoundException || error instanceof common_1.ForbiddenException || error instanceof common_1.BadRequestException) {
+                throw error;
+            }
+            throw new common_1.BadRequestException(`Failed to transfer chat: ${error.message}`);
+        }
+    }
+    async getAgentQueue() {
+        try {
+            const waitingChats = await this.prisma.chatRoom.findMany({
+                where: {
+                    status: client_1.ChatStatus.WAITING,
                 },
                 include: {
                     participants: {
@@ -666,156 +1091,107 @@ let AgentService = class AgentService {
                         },
                     },
                 },
-                orderBy: { updatedAt: 'desc' },
-            });
-            return agentChats;
-        }
-        catch (error) {
-            throw new common_1.BadRequestException(`Failed to get agent chats: ${error.message}`);
-        }
-    }
-    async autoAssignNextChat() {
-        try {
-            const waitingChat = await this.prisma.chatRoom.findFirst({
-                where: {
-                    status: client_1.ChatStatus.WAITING,
-                },
                 orderBy: [
                     { priority: 'desc' },
                     { createdAt: 'asc' },
                 ],
-                include: {
-                    participants: {
-                        include: {
-                            user: true,
-                        },
-                    },
-                },
             });
-            if (!waitingChat) {
-                return null;
-            }
-            const availableAgents = await this.getAvailableAgents();
-            if (availableAgents.length === 0) {
-                return null;
-            }
-            const bestAgent = availableAgents[0];
-            return await this.assignChatToAgent({
-                chatRoomId: waitingChat.id,
-                agentId: bestAgent.agentId,
-            });
+            return waitingChats;
         }
         catch (error) {
-            console.error('Failed to auto-assign chat:', error);
-            return null;
+            throw new common_1.BadRequestException(`Failed to get agent queue: ${error.message}`);
         }
     }
-    async getAgentPerformanceStats(agentId, days = 7) {
-        try {
-            const startDate = new Date();
-            startDate.setDate(startDate.getDate() - days);
-            const totalChats = await this.prisma.chatRoom.count({
-                where: {
-                    assignedToId: agentId,
-                    createdAt: {
-                        gte: startDate,
-                    },
+    async userHasAccessToChat(chatRoomId, userId) {
+        const participant = await this.prisma.userChatRoom.findUnique({
+            where: {
+                userId_chatRoomId: {
+                    userId,
+                    chatRoomId,
                 },
-            });
-            const resolvedChats = await this.prisma.chatRoom.count({
-                where: {
-                    assignedToId: agentId,
-                    status: client_1.ChatStatus.CLOSED,
-                    createdAt: {
-                        gte: startDate,
-                    },
-                },
-            });
-            const ratings = await this.prisma.chatRating.findMany({
-                where: {
-                    chatRoom: {
-                        assignedToId: agentId,
-                        createdAt: {
-                            gte: startDate,
-                        },
-                    },
-                },
-            });
-            const customerSatisfaction = ratings.length > 0
-                ? ratings.reduce((sum, rating) => sum + rating.rating, 0) / ratings.length
-                : 0;
-            const avgResponseTime = 0;
-            return {
-                totalChats,
-                avgResponseTime,
-                customerSatisfaction,
-                resolvedChats,
-            };
-        }
-        catch (error) {
-            throw new common_1.BadRequestException(`Failed to get agent performance stats: ${error.message}`);
-        }
+            },
+        });
+        return !!participant;
     }
-    async tryAssignWaitingChats(agentId) {
-        try {
-            const agentStatus = await this.getAgentStatus(agentId);
-            if (!agentStatus || agentStatus.currentChats >= agentStatus.maxChats) {
-                return;
-            }
-            const availableSlots = agentStatus.maxChats - agentStatus.currentChats;
-            const waitingChats = await this.prisma.chatRoom.findMany({
-                where: {
-                    status: client_1.ChatStatus.WAITING,
-                },
-                orderBy: [
-                    { priority: 'desc' },
-                    { createdAt: 'asc' },
-                ],
-                take: availableSlots,
-            });
-            for (const chat of waitingChats) {
-                try {
-                    await this.assignChatToAgent({
-                        chatRoomId: chat.id,
-                        agentId,
-                    });
-                }
-                catch (error) {
-                    console.error(`Failed to assign chat ${chat.id} to agent ${agentId}:`, error);
-                }
-            }
-        }
-        catch (error) {
-            console.error('Failed to try assign waiting chats:', error);
-        }
+    async addToAgentQueue(chatRoomId) {
+        await this.redisService.lpush('agent_queue', chatRoomId);
     }
     async removeFromAgentQueue(chatRoomId) {
-        try {
-            const queue = await this.redisService.lrange('agent_queue', 0, -1);
-            const filteredQueue = queue.filter(id => id !== chatRoomId);
-            await this.redisService.del('agent_queue');
-            if (filteredQueue.length > 0) {
-                await this.redisService.lpush('agent_queue', ...filteredQueue);
-            }
-        }
-        catch (error) {
-            console.error('Failed to remove from agent queue:', error);
+        const queue = await this.redisService.lrange('agent_queue', 0, -1);
+        const filteredQueue = queue.filter(id => id !== chatRoomId);
+        await this.redisService.del('agent_queue');
+        if (filteredQueue.length > 0) {
+            await this.redisService.lpush('agent_queue', ...filteredQueue);
         }
     }
+    async notifyAvailableAgents(chatRoom) {
+        const availableAgents = await this.prisma.user.findMany({
+            where: {
+                role: client_1.UserRole.AGENT,
+                agentStatus: {
+                    status: 'AVAILABLE',
+                },
+            },
+        });
+        for (const agent of availableAgents) {
+            await this.notificationService.sendNotification({
+                userId: agent.id,
+                type: 'NEW_CHAT',
+                title: 'New Chat Request',
+                message: `New support request from ${chatRoom.participants?.[0]?.user?.name || 'Customer'}`,
+                data: { chatRoomId: chatRoom.id },
+            });
+        }
+    }
+    async notifyChatClosed(chatRoom) {
+        for (const participant of chatRoom.participants || []) {
+            if (participant.user.role === client_1.UserRole.CUSTOMER) {
+                await this.notificationService.sendNotification({
+                    userId: participant.user.id,
+                    type: 'CHAT_CLOSED',
+                    title: 'Chat Closed',
+                    message: 'Your support chat has been closed',
+                    data: { chatRoomId: chatRoom.id },
+                });
+            }
+        }
+    }
+    async notifyChatTransferred(chatRoom, fromAgentId, toAgentId) {
+        await this.notificationService.sendNotification({
+            userId: toAgentId,
+            type: 'CHAT_TRANSFERRED',
+            title: 'Chat Transferred',
+            message: `Chat transferred to you from another agent`,
+            data: { chatRoomId: chatRoom.id },
+        });
+        await this.notificationService.sendNotification({
+            userId: fromAgentId,
+            type: 'CHAT_TRANSFERRED',
+            title: 'Chat Transferred',
+            message: `Chat successfully transferred`,
+            data: { chatRoomId: chatRoom.id },
+        });
+    }
+    async updateAgentChatCount(agentId, delta) {
+        await this.prisma.agentStatus.update({
+            where: { agentId },
+            data: {
+                currentChats: {
+                    increment: delta,
+                },
+            },
+        });
+    }
 };
-exports.AgentService = AgentService;
-exports.AgentService = AgentService = __decorate([
+exports.ChatService = ChatService;
+exports.ChatService = ChatService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [typeof (_a = typeof prisma_service_1.PrismaService !== "undefined" && prisma_service_1.PrismaService) === "function" ? _a : Object, typeof (_b = typeof redis_service_1.RedisService !== "undefined" && redis_service_1.RedisService) === "function" ? _b : Object, typeof (_c = typeof notification_service_1.NotificationService !== "undefined" && notification_service_1.NotificationService) === "function" ? _c : Object])
-], AgentService);
+], ChatService);
 
 
 /***/ }),
-
-/***/ "./src/chat/chat.module.ts":
-/*!*********************************!*\
-  !*** ./src/chat/chat.module.ts ***!
-  \*********************************/
+/* 27 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -825,35 +1201,76 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ChatModule = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const chat_service_1 = __webpack_require__(/*! ./chat.service */ "./src/chat/chat.service.ts");
-const chat_resolver_1 = __webpack_require__(/*! ./chat.resolver */ "./src/chat/chat.resolver.ts");
-const message_service_1 = __webpack_require__(/*! ./message.service */ "./src/chat/message.service.ts");
-const agent_service_1 = __webpack_require__(/*! ./agent.service */ "./src/chat/agent.service.ts");
-const prisma_module_1 = __webpack_require__(/*! ../prisma/prisma.module */ "./src/prisma/prisma.module.ts");
-const redis_module_1 = __webpack_require__(/*! ../redis/redis.module */ "./src/redis/redis.module.ts");
-const auth_module_1 = __webpack_require__(/*! ../auth/auth.module */ "./src/auth/auth.module.ts");
-const common_module_1 = __webpack_require__(/*! ../common/common.module */ "./src/common/common.module.ts");
-let ChatModule = class ChatModule {
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-exports.ChatModule = ChatModule;
-exports.ChatModule = ChatModule = __decorate([
-    (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule, redis_module_1.RedisModule, auth_module_1.AuthModule, common_module_1.CommonModule],
-        providers: [chat_service_1.ChatService, chat_resolver_1.ChatResolver, message_service_1.MessageService, agent_service_1.AgentService],
-        exports: [chat_service_1.ChatService, message_service_1.MessageService, agent_service_1.AgentService],
-    })
-], ChatModule);
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.NotificationService = void 0;
+const common_1 = __webpack_require__(2);
+const redis_service_1 = __webpack_require__(14);
+let NotificationService = class NotificationService {
+    constructor(redisService) {
+        this.redisService = redisService;
+    }
+    async sendNotification(payload) {
+        try {
+            const notificationKey = `notifications:${payload.userId}`;
+            const notification = {
+                id: Date.now().toString(),
+                ...payload,
+                createdAt: new Date().toISOString(),
+                read: false,
+            };
+            await this.redisService.lpush(notificationKey, JSON.stringify(notification));
+            await this.redisService.ltrim(notificationKey, 0, 49);
+            await this.redisService.publish(`user:${payload.userId}:notifications`, JSON.stringify(notification));
+        }
+        catch (error) {
+            console.error('Error sending notification:', error);
+        }
+    }
+    async getNotifications(userId, limit = 20) {
+        try {
+            const notificationKey = `notifications:${userId}`;
+            const notifications = await this.redisService.lrange(notificationKey, 0, limit - 1);
+            return notifications.map(n => JSON.parse(n));
+        }
+        catch (error) {
+            console.error('Error fetching notifications:', error);
+            return [];
+        }
+    }
+    async markAsRead(userId, notificationId) {
+        try {
+            const notificationKey = `notifications:${userId}`;
+            const notifications = await this.redisService.lrange(notificationKey, 0, -1);
+            const updatedNotifications = notifications.map(n => {
+                const notification = JSON.parse(n);
+                if (notification.id === notificationId) {
+                    notification.read = true;
+                }
+                return JSON.stringify(notification);
+            });
+            await this.redisService.del(notificationKey);
+            if (updatedNotifications.length > 0) {
+                await this.redisService.lpush(notificationKey, ...updatedNotifications);
+            }
+        }
+        catch (error) {
+            console.error('Error marking notification as read:', error);
+        }
+    }
+};
+exports.NotificationService = NotificationService;
+exports.NotificationService = NotificationService = __decorate([
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [typeof (_a = typeof redis_service_1.RedisService !== "undefined" && redis_service_1.RedisService) === "function" ? _a : Object])
+], NotificationService);
 
 
 /***/ }),
-
-/***/ "./src/chat/chat.resolver.ts":
-/*!***********************************!*\
-  !*** ./src/chat/chat.resolver.ts ***!
-  \***********************************/
+/* 28 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -872,17 +1289,17 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ChatResolver = void 0;
-const graphql_1 = __webpack_require__(/*! @nestjs/graphql */ "@nestjs/graphql");
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const graphql_subscriptions_1 = __webpack_require__(/*! graphql-subscriptions */ "graphql-subscriptions");
-const jwt_auth_guard_1 = __webpack_require__(/*! ../auth/guards/jwt-auth.guard */ "./src/auth/guards/jwt-auth.guard.ts");
-const roles_guard_1 = __webpack_require__(/*! ../common/guards/roles.guard */ "./src/common/guards/roles.guard.ts");
-const roles_decorator_1 = __webpack_require__(/*! ../common/decorators/roles.decorator */ "./src/common/decorators/roles.decorator.ts");
-const current_user_decorator_1 = __webpack_require__(/*! ../common/decorators/current-user.decorator */ "./src/common/decorators/current-user.decorator.ts");
-const chat_service_1 = __webpack_require__(/*! ./chat.service */ "./src/chat/chat.service.ts");
-const message_service_1 = __webpack_require__(/*! ./message.service */ "./src/chat/message.service.ts");
-const agent_service_1 = __webpack_require__(/*! ./agent.service */ "./src/chat/agent.service.ts");
-const client_1 = __webpack_require__(/*! @prisma/client */ "@prisma/client");
+const graphql_1 = __webpack_require__(5);
+const common_1 = __webpack_require__(2);
+const graphql_subscriptions_1 = __webpack_require__(29);
+const jwt_auth_guard_1 = __webpack_require__(21);
+const roles_guard_1 = __webpack_require__(30);
+const roles_decorator_1 = __webpack_require__(31);
+const current_user_decorator_1 = __webpack_require__(22);
+const chat_service_1 = __webpack_require__(26);
+const message_service_1 = __webpack_require__(32);
+const agent_service_1 = __webpack_require__(33);
+const client_1 = __webpack_require__(12);
 const pubSub = new graphql_subscriptions_1.PubSub();
 let ChatResolver = class ChatResolver {
     constructor(chatService, messageService, agentService) {
@@ -1395,11 +1812,13 @@ exports.ChatResolver = ChatResolver = __decorate([
 
 
 /***/ }),
+/* 29 */
+/***/ ((module) => {
 
-/***/ "./src/chat/chat.service.ts":
-/*!**********************************!*\
-  !*** ./src/chat/chat.service.ts ***!
-  \**********************************/
+module.exports = require("graphql-subscriptions");
+
+/***/ }),
+/* 30 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1412,432 +1831,55 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a, _b, _c;
+var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ChatService = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const prisma_service_1 = __webpack_require__(/*! ../prisma/prisma.service */ "./src/prisma/prisma.service.ts");
-const redis_service_1 = __webpack_require__(/*! ../redis/redis.service */ "./src/redis/redis.service.ts");
-const notification_service_1 = __webpack_require__(/*! ../common/services/notification.service */ "./src/common/services/notification.service.ts");
-const client_1 = __webpack_require__(/*! @prisma/client */ "@prisma/client");
-let ChatService = class ChatService {
-    constructor(prisma, redisService, notificationService) {
-        this.prisma = prisma;
-        this.redisService = redisService;
-        this.notificationService = notificationService;
+exports.RolesGuard = void 0;
+const common_1 = __webpack_require__(2);
+const core_1 = __webpack_require__(1);
+const graphql_1 = __webpack_require__(5);
+const roles_decorator_1 = __webpack_require__(31);
+let RolesGuard = class RolesGuard {
+    constructor(reflector) {
+        this.reflector = reflector;
     }
-    async createChatRoom(input) {
-        try {
-            const customer = await this.prisma.user.findUnique({
-                where: { id: input.customerId },
-            });
-            if (!customer || customer.role !== client_1.UserRole.CUSTOMER) {
-                throw new common_1.BadRequestException('Invalid customer');
-            }
-            const chatRoom = await this.prisma.chatRoom.create({
-                data: {
-                    title: input.title || `Support Chat - ${customer.name}`,
-                    status: client_1.ChatStatus.WAITING,
-                    priority: input.priority || 0,
-                    participants: {
-                        create: {
-                            userId: input.customerId,
-                            joinedAt: new Date(),
-                        },
-                    },
-                },
-                include: {
-                    participants: {
-                        include: {
-                            user: true,
-                        },
-                    },
-                    assignedTo: true,
-                },
-            });
-            await this.addToAgentQueue(chatRoom.id);
-            await this.notifyAvailableAgents(chatRoom);
-            await this.redisService.set(`chat:${chatRoom.id}`, chatRoom, 3600);
-            return chatRoom;
-        }
-        catch (error) {
-            throw new common_1.BadRequestException(`Failed to create chat room: ${error.message}`);
-        }
-    }
-    async getChatRoom(id, userId) {
-        try {
-            const cached = await this.redisService.get(`chat:${id}`);
-            if (cached) {
-                if (await this.userHasAccessToChat(id, userId)) {
-                    return cached;
-                }
-                throw new common_1.ForbiddenException('Access denied to this chat');
-            }
-            const chatRoom = await this.prisma.chatRoom.findUnique({
-                where: { id },
-                include: {
-                    participants: {
-                        include: {
-                            user: true,
-                        },
-                    },
-                    assignedTo: true,
-                    messages: {
-                        orderBy: { createdAt: 'desc' },
-                        take: 50,
-                        include: {
-                            sender: true,
-                        },
-                    },
-                },
-            });
-            if (!chatRoom) {
-                throw new common_1.NotFoundException('Chat room not found');
-            }
-            if (!(await this.userHasAccessToChat(id, userId))) {
-                throw new common_1.ForbiddenException('Access denied to this chat');
-            }
-            await this.redisService.set(`chat:${id}`, chatRoom, 3600);
-            return chatRoom;
-        }
-        catch (error) {
-            if (error instanceof common_1.NotFoundException || error instanceof common_1.ForbiddenException) {
-                throw error;
-            }
-            throw new common_1.BadRequestException(`Failed to get chat room: ${error.message}`);
-        }
-    }
-    async getUserChatRooms(userId, status) {
-        try {
-            const whereClause = {
-                participants: {
-                    some: {
-                        userId,
-                    },
-                },
-            };
-            if (status) {
-                whereClause.status = status;
-            }
-            const chatRooms = await this.prisma.chatRoom.findMany({
-                where: whereClause,
-                include: {
-                    participants: {
-                        include: {
-                            user: true,
-                        },
-                    },
-                    assignedTo: true,
-                    messages: {
-                        orderBy: { createdAt: 'desc' },
-                        take: 1,
-                        include: {
-                            sender: true,
-                        },
-                    },
-                },
-                orderBy: { updatedAt: 'desc' },
-            });
-            return chatRooms;
-        }
-        catch (error) {
-            throw new common_1.BadRequestException(`Failed to get user chat rooms: ${error.message}`);
-        }
-    }
-    async joinChatRoom(input) {
-        try {
-            const { chatRoomId, userId } = input;
-            const existingParticipant = await this.prisma.userChatRoom.findUnique({
-                where: {
-                    userId_chatRoomId: {
-                        userId,
-                        chatRoomId,
-                    },
-                },
-            });
-            if (existingParticipant && !existingParticipant.leftAt) {
-                throw new common_1.BadRequestException('User already in chat room');
-            }
-            if (existingParticipant) {
-                await this.prisma.userChatRoom.update({
-                    where: { id: existingParticipant.id },
-                    data: {
-                        leftAt: null,
-                        joinedAt: new Date(),
-                        unreadCount: 0,
-                    },
-                });
-            }
-            else {
-                await this.prisma.userChatRoom.create({
-                    data: {
-                        userId,
-                        chatRoomId,
-                        joinedAt: new Date(),
-                    },
-                });
-            }
-            await this.redisService.del(`chat:${chatRoomId}`);
-            const chatRoom = await this.getChatRoom(chatRoomId, userId);
-            return chatRoom;
-        }
-        catch (error) {
-            throw new common_1.BadRequestException(`Failed to join chat room: ${error.message}`);
-        }
-    }
-    async leaveChatRoom(chatRoomId, userId) {
-        try {
-            const participant = await this.prisma.userChatRoom.findUnique({
-                where: {
-                    userId_chatRoomId: {
-                        userId,
-                        chatRoomId,
-                    },
-                },
-            });
-            if (!participant) {
-                throw new common_1.NotFoundException('User not in chat room');
-            }
-            await this.prisma.userChatRoom.update({
-                where: { id: participant.id },
-                data: {
-                    leftAt: new Date(),
-                },
-            });
-            await this.redisService.del(`chat:${chatRoomId}`);
+    canActivate(context) {
+        const requiredRoles = this.reflector.getAllAndOverride(roles_decorator_1.ROLES_KEY, [
+            context.getHandler(),
+            context.getClass(),
+        ]);
+        if (!requiredRoles) {
             return true;
         }
-        catch (error) {
-            throw new common_1.BadRequestException(`Failed to leave chat room: ${error.message}`);
+        const ctx = graphql_1.GqlExecutionContext.create(context);
+        const user = ctx.getContext().req.user;
+        if (!user) {
+            return false;
         }
-    }
-    async closeChatRoom(input) {
-        try {
-            const { chatRoomId, userId } = input;
-            const chatRoom = await this.prisma.chatRoom.findUnique({
-                where: { id: chatRoomId },
-                include: {
-                    assignedTo: true,
-                    participants: true,
-                },
-            });
-            if (!chatRoom) {
-                throw new common_1.NotFoundException('Chat room not found');
-            }
-            const user = await this.prisma.user.findUnique({
-                where: { id: userId },
-            });
-            if (user?.role !== client_1.UserRole.ADMIN &&
-                chatRoom.assignedToId !== userId) {
-                throw new common_1.ForbiddenException('Only assigned agent or admin can close chat');
-            }
-            const updatedChatRoom = await this.prisma.chatRoom.update({
-                where: { id: chatRoomId },
-                data: {
-                    status: client_1.ChatStatus.CLOSED,
-                    closedAt: new Date(),
-                },
-                include: {
-                    participants: {
-                        include: {
-                            user: true,
-                        },
-                    },
-                    assignedTo: true,
-                },
-            });
-            await this.removeFromAgentQueue(chatRoomId);
-            await this.redisService.del(`chat:${chatRoomId}`);
-            await this.notifyChatClosed(updatedChatRoom);
-            return updatedChatRoom;
-        }
-        catch (error) {
-            if (error instanceof common_1.NotFoundException || error instanceof common_1.ForbiddenException) {
-                throw error;
-            }
-            throw new common_1.BadRequestException(`Failed to close chat room: ${error.message}`);
-        }
-    }
-    async transferChat(input) {
-        try {
-            const { chatRoomId, fromAgentId, toAgentId } = input;
-            const chatRoom = await this.prisma.chatRoom.findUnique({
-                where: { id: chatRoomId },
-                include: {
-                    assignedTo: true,
-                },
-            });
-            if (!chatRoom) {
-                throw new common_1.NotFoundException('Chat room not found');
-            }
-            if (chatRoom.assignedToId !== fromAgentId) {
-                throw new common_1.ForbiddenException('Only assigned agent can transfer chat');
-            }
-            const targetAgent = await this.prisma.user.findUnique({
-                where: { id: toAgentId },
-                include: {
-                    agentStatus: true,
-                },
-            });
-            if (!targetAgent || targetAgent.role !== client_1.UserRole.AGENT) {
-                throw new common_1.BadRequestException('Invalid target agent');
-            }
-            if (targetAgent.agentStatus?.status !== 'AVAILABLE') {
-                throw new common_1.BadRequestException('Target agent is not available');
-            }
-            const updatedChatRoom = await this.prisma.chatRoom.update({
-                where: { id: chatRoomId },
-                data: {
-                    assignedToId: toAgentId,
-                    status: client_1.ChatStatus.TRANSFERRED,
-                },
-                include: {
-                    participants: {
-                        include: {
-                            user: true,
-                        },
-                    },
-                    assignedTo: true,
-                },
-            });
-            await this.updateAgentChatCount(fromAgentId, -1);
-            await this.updateAgentChatCount(toAgentId, 1);
-            await this.redisService.del(`chat:${chatRoomId}`);
-            await this.notifyChatTransferred(updatedChatRoom, fromAgentId, toAgentId);
-            return updatedChatRoom;
-        }
-        catch (error) {
-            if (error instanceof common_1.NotFoundException || error instanceof common_1.ForbiddenException || error instanceof common_1.BadRequestException) {
-                throw error;
-            }
-            throw new common_1.BadRequestException(`Failed to transfer chat: ${error.message}`);
-        }
-    }
-    async getAgentQueue() {
-        try {
-            const waitingChats = await this.prisma.chatRoom.findMany({
-                where: {
-                    status: client_1.ChatStatus.WAITING,
-                },
-                include: {
-                    participants: {
-                        include: {
-                            user: true,
-                        },
-                    },
-                    messages: {
-                        orderBy: { createdAt: 'desc' },
-                        take: 1,
-                        include: {
-                            sender: true,
-                        },
-                    },
-                },
-                orderBy: [
-                    { priority: 'desc' },
-                    { createdAt: 'asc' },
-                ],
-            });
-            return waitingChats;
-        }
-        catch (error) {
-            throw new common_1.BadRequestException(`Failed to get agent queue: ${error.message}`);
-        }
-    }
-    async userHasAccessToChat(chatRoomId, userId) {
-        const participant = await this.prisma.userChatRoom.findUnique({
-            where: {
-                userId_chatRoomId: {
-                    userId,
-                    chatRoomId,
-                },
-            },
-        });
-        return !!participant;
-    }
-    async addToAgentQueue(chatRoomId) {
-        await this.redisService.lpush('agent_queue', chatRoomId);
-    }
-    async removeFromAgentQueue(chatRoomId) {
-        const queue = await this.redisService.lrange('agent_queue', 0, -1);
-        const filteredQueue = queue.filter(id => id !== chatRoomId);
-        await this.redisService.del('agent_queue');
-        if (filteredQueue.length > 0) {
-            await this.redisService.lpush('agent_queue', ...filteredQueue);
-        }
-    }
-    async notifyAvailableAgents(chatRoom) {
-        const availableAgents = await this.prisma.user.findMany({
-            where: {
-                role: client_1.UserRole.AGENT,
-                agentStatus: {
-                    status: 'AVAILABLE',
-                },
-            },
-        });
-        for (const agent of availableAgents) {
-            await this.notificationService.sendNotification({
-                userId: agent.id,
-                type: 'NEW_CHAT',
-                title: 'New Chat Request',
-                message: `New support request from ${chatRoom.participants?.[0]?.user?.name || 'Customer'}`,
-                data: { chatRoomId: chatRoom.id },
-            });
-        }
-    }
-    async notifyChatClosed(chatRoom) {
-        for (const participant of chatRoom.participants || []) {
-            if (participant.user.role === client_1.UserRole.CUSTOMER) {
-                await this.notificationService.sendNotification({
-                    userId: participant.user.id,
-                    type: 'CHAT_CLOSED',
-                    title: 'Chat Closed',
-                    message: 'Your support chat has been closed',
-                    data: { chatRoomId: chatRoom.id },
-                });
-            }
-        }
-    }
-    async notifyChatTransferred(chatRoom, fromAgentId, toAgentId) {
-        await this.notificationService.sendNotification({
-            userId: toAgentId,
-            type: 'CHAT_TRANSFERRED',
-            title: 'Chat Transferred',
-            message: `Chat transferred to you from another agent`,
-            data: { chatRoomId: chatRoom.id },
-        });
-        await this.notificationService.sendNotification({
-            userId: fromAgentId,
-            type: 'CHAT_TRANSFERRED',
-            title: 'Chat Transferred',
-            message: `Chat successfully transferred`,
-            data: { chatRoomId: chatRoom.id },
-        });
-    }
-    async updateAgentChatCount(agentId, delta) {
-        await this.prisma.agentStatus.update({
-            where: { agentId },
-            data: {
-                currentChats: {
-                    increment: delta,
-                },
-            },
-        });
+        return requiredRoles.some((role) => user.role === role);
     }
 };
-exports.ChatService = ChatService;
-exports.ChatService = ChatService = __decorate([
+exports.RolesGuard = RolesGuard;
+exports.RolesGuard = RolesGuard = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [typeof (_a = typeof prisma_service_1.PrismaService !== "undefined" && prisma_service_1.PrismaService) === "function" ? _a : Object, typeof (_b = typeof redis_service_1.RedisService !== "undefined" && redis_service_1.RedisService) === "function" ? _b : Object, typeof (_c = typeof notification_service_1.NotificationService !== "undefined" && notification_service_1.NotificationService) === "function" ? _c : Object])
-], ChatService);
+    __metadata("design:paramtypes", [typeof (_a = typeof core_1.Reflector !== "undefined" && core_1.Reflector) === "function" ? _a : Object])
+], RolesGuard);
 
 
 /***/ }),
+/* 31 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-/***/ "./src/chat/message.service.ts":
-/*!*************************************!*\
-  !*** ./src/chat/message.service.ts ***!
-  \*************************************/
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Roles = exports.ROLES_KEY = void 0;
+const common_1 = __webpack_require__(2);
+exports.ROLES_KEY = 'roles';
+const Roles = (...roles) => (0, common_1.SetMetadata)(exports.ROLES_KEY, roles);
+exports.Roles = Roles;
+
+
+/***/ }),
+/* 32 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1853,10 +1895,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MessageService = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const prisma_service_1 = __webpack_require__(/*! ../prisma/prisma.service */ "./src/prisma/prisma.service.ts");
-const redis_service_1 = __webpack_require__(/*! ../redis/redis.service */ "./src/redis/redis.service.ts");
-const client_1 = __webpack_require__(/*! @prisma/client */ "@prisma/client");
+const common_1 = __webpack_require__(2);
+const prisma_service_1 = __webpack_require__(11);
+const redis_service_1 = __webpack_require__(14);
+const client_1 = __webpack_require__(12);
 let MessageService = class MessageService {
     constructor(prisma, redisService) {
         this.prisma = prisma;
@@ -2168,11 +2210,396 @@ exports.MessageService = MessageService = __decorate([
 
 
 /***/ }),
+/* 33 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-/***/ "./src/common/common.module.ts":
-/*!*************************************!*\
-  !*** ./src/common/common.module.ts ***!
-  \*************************************/
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AgentService = void 0;
+const common_1 = __webpack_require__(2);
+const prisma_service_1 = __webpack_require__(11);
+const redis_service_1 = __webpack_require__(14);
+const notification_service_1 = __webpack_require__(27);
+const client_1 = __webpack_require__(12);
+let AgentService = class AgentService {
+    constructor(prisma, redisService, notificationService) {
+        this.prisma = prisma;
+        this.redisService = redisService;
+        this.notificationService = notificationService;
+    }
+    async updateAgentStatus(input) {
+        try {
+            const { agentId, status, statusMessage, maxChats } = input;
+            const agent = await this.prisma.user.findUnique({
+                where: { id: agentId },
+            });
+            if (!agent || agent.role !== client_1.UserRole.AGENT) {
+                throw new common_1.BadRequestException('Invalid agent');
+            }
+            let agentStatus = await this.prisma.agentStatus.findUnique({
+                where: { agentId },
+            });
+            if (!agentStatus) {
+                agentStatus = await this.prisma.agentStatus.create({
+                    data: {
+                        agentId,
+                        status,
+                        statusMessage,
+                        maxChats: maxChats || 5,
+                        lastActiveAt: new Date(),
+                    },
+                });
+            }
+            else {
+                agentStatus = await this.prisma.agentStatus.update({
+                    where: { agentId },
+                    data: {
+                        status,
+                        statusMessage,
+                        maxChats: maxChats !== undefined ? maxChats : agentStatus.maxChats,
+                        lastActiveAt: new Date(),
+                    },
+                });
+            }
+            await this.redisService.set(`agent:${agentId}:status`, agentStatus, 3600);
+            if (status === client_1.AgentStatusType.OFFLINE) {
+                await this.redisService.removeFromSet('online_agents', agentId);
+            }
+            else {
+                await this.redisService.addToSet('online_agents', agentId);
+            }
+            if (status === client_1.AgentStatusType.AVAILABLE) {
+                await this.tryAssignWaitingChats(agentId);
+            }
+            return agentStatus;
+        }
+        catch (error) {
+            if (error instanceof common_1.BadRequestException) {
+                throw error;
+            }
+            throw new common_1.BadRequestException(`Failed to update agent status: ${error.message}`);
+        }
+    }
+    async getAgentStatus(agentId) {
+        try {
+            const cached = await this.redisService.get(`agent:${agentId}:status`);
+            if (cached) {
+                return cached;
+            }
+            const agentStatus = await this.prisma.agentStatus.findUnique({
+                where: { agentId },
+                include: {
+                    agent: {
+                        select: {
+                            id: true,
+                            name: true,
+                            email: true,
+                            avatar: true,
+                        },
+                    },
+                },
+            });
+            if (agentStatus) {
+                await this.redisService.set(`agent:${agentId}:status`, agentStatus, 3600);
+            }
+            return agentStatus;
+        }
+        catch (error) {
+            console.error('Failed to get agent status:', error);
+            return null;
+        }
+    }
+    async getAvailableAgents() {
+        try {
+            const availableAgents = await this.prisma.agentStatus.findMany({
+                where: {
+                    status: client_1.AgentStatusType.AVAILABLE,
+                },
+                include: {
+                    agent: {
+                        select: {
+                            id: true,
+                            name: true,
+                            email: true,
+                            avatar: true,
+                        },
+                    },
+                },
+                orderBy: [
+                    { currentChats: 'asc' },
+                    { lastActiveAt: 'desc' },
+                ],
+            });
+            return availableAgents.filter(agent => agent.currentChats < agent.maxChats);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(`Failed to get available agents: ${error.message}`);
+        }
+    }
+    async assignChatToAgent(input) {
+        try {
+            const { chatRoomId, agentId } = input;
+            const chatRoom = await this.prisma.chatRoom.findUnique({
+                where: { id: chatRoomId },
+                include: {
+                    participants: {
+                        include: {
+                            user: true,
+                        },
+                    },
+                },
+            });
+            if (!chatRoom) {
+                throw new common_1.NotFoundException('Chat room not found');
+            }
+            if (chatRoom.status !== client_1.ChatStatus.WAITING) {
+                throw new common_1.BadRequestException('Chat is not waiting for assignment');
+            }
+            const agentStatus = await this.getAgentStatus(agentId);
+            if (!agentStatus || agentStatus.status !== client_1.AgentStatusType.AVAILABLE) {
+                throw new common_1.BadRequestException('Agent is not available');
+            }
+            if (agentStatus.currentChats >= agentStatus.maxChats) {
+                throw new common_1.BadRequestException('Agent has reached maximum chat capacity');
+            }
+            const updatedChatRoom = await this.prisma.chatRoom.update({
+                where: { id: chatRoomId },
+                data: {
+                    assignedToId: agentId,
+                    status: client_1.ChatStatus.ACTIVE,
+                },
+                include: {
+                    participants: {
+                        include: {
+                            user: true,
+                        },
+                    },
+                    assignedTo: true,
+                },
+            });
+            await this.prisma.userChatRoom.create({
+                data: {
+                    userId: agentId,
+                    chatRoomId,
+                    joinedAt: new Date(),
+                },
+            });
+            await this.prisma.agentStatus.update({
+                where: { agentId },
+                data: {
+                    currentChats: {
+                        increment: 1,
+                    },
+                },
+            });
+            await this.removeFromAgentQueue(chatRoomId);
+            await this.redisService.del(`chat:${chatRoomId}`);
+            await this.redisService.del(`agent:${agentId}:status`);
+            await this.notificationService.sendNotification({
+                userId: agentId,
+                type: 'CHAT_ASSIGNED',
+                title: 'Chat Assigned',
+                message: `New chat assigned from ${updatedChatRoom.participants?.[0]?.user?.name || 'Customer'}`,
+                data: { chatRoomId },
+            });
+            const customer = updatedChatRoom.participants?.find(p => p.user.role === client_1.UserRole.CUSTOMER);
+            if (customer) {
+                await this.notificationService.sendNotification({
+                    userId: customer.userId,
+                    type: 'AGENT_ASSIGNED',
+                    title: 'Agent Assigned',
+                    message: `${updatedChatRoom.assignedTo?.name} is now helping you`,
+                    data: { chatRoomId, agentName: updatedChatRoom.assignedTo?.name },
+                });
+            }
+            return updatedChatRoom;
+        }
+        catch (error) {
+            if (error instanceof common_1.NotFoundException || error instanceof common_1.BadRequestException) {
+                throw error;
+            }
+            throw new common_1.BadRequestException(`Failed to assign chat to agent: ${error.message}`);
+        }
+    }
+    async getAgentChats(agentId) {
+        try {
+            const agentChats = await this.prisma.chatRoom.findMany({
+                where: {
+                    assignedToId: agentId,
+                    status: {
+                        in: [client_1.ChatStatus.ACTIVE, client_1.ChatStatus.TRANSFERRED],
+                    },
+                },
+                include: {
+                    participants: {
+                        include: {
+                            user: true,
+                        },
+                    },
+                    messages: {
+                        orderBy: { createdAt: 'desc' },
+                        take: 1,
+                        include: {
+                            sender: true,
+                        },
+                    },
+                },
+                orderBy: { updatedAt: 'desc' },
+            });
+            return agentChats;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(`Failed to get agent chats: ${error.message}`);
+        }
+    }
+    async autoAssignNextChat() {
+        try {
+            const waitingChat = await this.prisma.chatRoom.findFirst({
+                where: {
+                    status: client_1.ChatStatus.WAITING,
+                },
+                orderBy: [
+                    { priority: 'desc' },
+                    { createdAt: 'asc' },
+                ],
+                include: {
+                    participants: {
+                        include: {
+                            user: true,
+                        },
+                    },
+                },
+            });
+            if (!waitingChat) {
+                return null;
+            }
+            const availableAgents = await this.getAvailableAgents();
+            if (availableAgents.length === 0) {
+                return null;
+            }
+            const bestAgent = availableAgents[0];
+            return await this.assignChatToAgent({
+                chatRoomId: waitingChat.id,
+                agentId: bestAgent.agentId,
+            });
+        }
+        catch (error) {
+            console.error('Failed to auto-assign chat:', error);
+            return null;
+        }
+    }
+    async getAgentPerformanceStats(agentId, days = 7) {
+        try {
+            const startDate = new Date();
+            startDate.setDate(startDate.getDate() - days);
+            const totalChats = await this.prisma.chatRoom.count({
+                where: {
+                    assignedToId: agentId,
+                    createdAt: {
+                        gte: startDate,
+                    },
+                },
+            });
+            const resolvedChats = await this.prisma.chatRoom.count({
+                where: {
+                    assignedToId: agentId,
+                    status: client_1.ChatStatus.CLOSED,
+                    createdAt: {
+                        gte: startDate,
+                    },
+                },
+            });
+            const ratings = await this.prisma.chatRating.findMany({
+                where: {
+                    chatRoom: {
+                        assignedToId: agentId,
+                        createdAt: {
+                            gte: startDate,
+                        },
+                    },
+                },
+            });
+            const customerSatisfaction = ratings.length > 0
+                ? ratings.reduce((sum, rating) => sum + rating.rating, 0) / ratings.length
+                : 0;
+            const avgResponseTime = 0;
+            return {
+                totalChats,
+                avgResponseTime,
+                customerSatisfaction,
+                resolvedChats,
+            };
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(`Failed to get agent performance stats: ${error.message}`);
+        }
+    }
+    async tryAssignWaitingChats(agentId) {
+        try {
+            const agentStatus = await this.getAgentStatus(agentId);
+            if (!agentStatus || agentStatus.currentChats >= agentStatus.maxChats) {
+                return;
+            }
+            const availableSlots = agentStatus.maxChats - agentStatus.currentChats;
+            const waitingChats = await this.prisma.chatRoom.findMany({
+                where: {
+                    status: client_1.ChatStatus.WAITING,
+                },
+                orderBy: [
+                    { priority: 'desc' },
+                    { createdAt: 'asc' },
+                ],
+                take: availableSlots,
+            });
+            for (const chat of waitingChats) {
+                try {
+                    await this.assignChatToAgent({
+                        chatRoomId: chat.id,
+                        agentId,
+                    });
+                }
+                catch (error) {
+                    console.error(`Failed to assign chat ${chat.id} to agent ${agentId}:`, error);
+                }
+            }
+        }
+        catch (error) {
+            console.error('Failed to try assign waiting chats:', error);
+        }
+    }
+    async removeFromAgentQueue(chatRoomId) {
+        try {
+            const queue = await this.redisService.lrange('agent_queue', 0, -1);
+            const filteredQueue = queue.filter(id => id !== chatRoomId);
+            await this.redisService.del('agent_queue');
+            if (filteredQueue.length > 0) {
+                await this.redisService.lpush('agent_queue', ...filteredQueue);
+            }
+        }
+        catch (error) {
+            console.error('Failed to remove from agent queue:', error);
+        }
+    }
+};
+exports.AgentService = AgentService;
+exports.AgentService = AgentService = __decorate([
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [typeof (_a = typeof prisma_service_1.PrismaService !== "undefined" && prisma_service_1.PrismaService) === "function" ? _a : Object, typeof (_b = typeof redis_service_1.RedisService !== "undefined" && redis_service_1.RedisService) === "function" ? _b : Object, typeof (_c = typeof notification_service_1.NotificationService !== "undefined" && notification_service_1.NotificationService) === "function" ? _c : Object])
+], AgentService);
+
+
+/***/ }),
+/* 34 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -2184,12 +2611,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CommonModule = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const file_upload_service_1 = __webpack_require__(/*! ./services/file-upload.service */ "./src/common/services/file-upload.service.ts");
-const notification_service_1 = __webpack_require__(/*! ./services/notification.service */ "./src/common/services/notification.service.ts");
-const rating_service_1 = __webpack_require__(/*! ./services/rating.service */ "./src/common/services/rating.service.ts");
-const prisma_module_1 = __webpack_require__(/*! ../prisma/prisma.module */ "./src/prisma/prisma.module.ts");
-const redis_module_1 = __webpack_require__(/*! ../redis/redis.module */ "./src/redis/redis.module.ts");
+const common_1 = __webpack_require__(2);
+const file_upload_service_1 = __webpack_require__(35);
+const notification_service_1 = __webpack_require__(27);
+const rating_service_1 = __webpack_require__(39);
+const prisma_module_1 = __webpack_require__(10);
+const redis_module_1 = __webpack_require__(13);
 let CommonModule = class CommonModule {
 };
 exports.CommonModule = CommonModule;
@@ -2203,99 +2630,7 @@ exports.CommonModule = CommonModule = __decorate([
 
 
 /***/ }),
-
-/***/ "./src/common/decorators/current-user.decorator.ts":
-/*!*********************************************************!*\
-  !*** ./src/common/decorators/current-user.decorator.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CurrentUser = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const graphql_1 = __webpack_require__(/*! @nestjs/graphql */ "@nestjs/graphql");
-exports.CurrentUser = (0, common_1.createParamDecorator)((data, context) => {
-    const ctx = graphql_1.GqlExecutionContext.create(context);
-    return ctx.getContext().req.user;
-});
-
-
-/***/ }),
-
-/***/ "./src/common/decorators/roles.decorator.ts":
-/*!**************************************************!*\
-  !*** ./src/common/decorators/roles.decorator.ts ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Roles = exports.ROLES_KEY = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-exports.ROLES_KEY = 'roles';
-const Roles = (...roles) => (0, common_1.SetMetadata)(exports.ROLES_KEY, roles);
-exports.Roles = Roles;
-
-
-/***/ }),
-
-/***/ "./src/common/guards/roles.guard.ts":
-/*!******************************************!*\
-  !*** ./src/common/guards/roles.guard.ts ***!
-  \******************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var _a;
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.RolesGuard = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const core_1 = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
-const graphql_1 = __webpack_require__(/*! @nestjs/graphql */ "@nestjs/graphql");
-const roles_decorator_1 = __webpack_require__(/*! ../decorators/roles.decorator */ "./src/common/decorators/roles.decorator.ts");
-let RolesGuard = class RolesGuard {
-    constructor(reflector) {
-        this.reflector = reflector;
-    }
-    canActivate(context) {
-        const requiredRoles = this.reflector.getAllAndOverride(roles_decorator_1.ROLES_KEY, [
-            context.getHandler(),
-            context.getClass(),
-        ]);
-        if (!requiredRoles) {
-            return true;
-        }
-        const ctx = graphql_1.GqlExecutionContext.create(context);
-        const user = ctx.getContext().req.user;
-        if (!user) {
-            return false;
-        }
-        return requiredRoles.some((role) => user.role === role);
-    }
-};
-exports.RolesGuard = RolesGuard;
-exports.RolesGuard = RolesGuard = __decorate([
-    (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [typeof (_a = typeof core_1.Reflector !== "undefined" && core_1.Reflector) === "function" ? _a : Object])
-], RolesGuard);
-
-
-/***/ }),
-
-/***/ "./src/common/services/file-upload.service.ts":
-/*!****************************************************!*\
-  !*** ./src/common/services/file-upload.service.ts ***!
-  \****************************************************/
+/* 35 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -2311,12 +2646,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.FileUploadService = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const config_1 = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-const multer = __webpack_require__(/*! multer */ "multer");
-const path = __webpack_require__(/*! path */ "path");
-const fs = __webpack_require__(/*! fs */ "fs");
-const uuid_1 = __webpack_require__(/*! uuid */ "uuid");
+const common_1 = __webpack_require__(2);
+const config_1 = __webpack_require__(3);
+const multer = __webpack_require__(36);
+const path = __webpack_require__(9);
+const fs = __webpack_require__(37);
+const uuid_1 = __webpack_require__(38);
 let FileUploadService = class FileUploadService {
     constructor(configService) {
         this.configService = configService;
@@ -2386,94 +2721,25 @@ exports.FileUploadService = FileUploadService = __decorate([
 
 
 /***/ }),
+/* 36 */
+/***/ ((module) => {
 
-/***/ "./src/common/services/notification.service.ts":
-/*!*****************************************************!*\
-  !*** ./src/common/services/notification.service.ts ***!
-  \*****************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var _a;
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.NotificationService = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const redis_service_1 = __webpack_require__(/*! ../../redis/redis.service */ "./src/redis/redis.service.ts");
-let NotificationService = class NotificationService {
-    constructor(redisService) {
-        this.redisService = redisService;
-    }
-    async sendNotification(payload) {
-        try {
-            const notificationKey = `notifications:${payload.userId}`;
-            const notification = {
-                id: Date.now().toString(),
-                ...payload,
-                createdAt: new Date().toISOString(),
-                read: false,
-            };
-            await this.redisService.lpush(notificationKey, JSON.stringify(notification));
-            await this.redisService.ltrim(notificationKey, 0, 49);
-            await this.redisService.publish(`user:${payload.userId}:notifications`, JSON.stringify(notification));
-        }
-        catch (error) {
-            console.error('Error sending notification:', error);
-        }
-    }
-    async getNotifications(userId, limit = 20) {
-        try {
-            const notificationKey = `notifications:${userId}`;
-            const notifications = await this.redisService.lrange(notificationKey, 0, limit - 1);
-            return notifications.map(n => JSON.parse(n));
-        }
-        catch (error) {
-            console.error('Error fetching notifications:', error);
-            return [];
-        }
-    }
-    async markAsRead(userId, notificationId) {
-        try {
-            const notificationKey = `notifications:${userId}`;
-            const notifications = await this.redisService.lrange(notificationKey, 0, -1);
-            const updatedNotifications = notifications.map(n => {
-                const notification = JSON.parse(n);
-                if (notification.id === notificationId) {
-                    notification.read = true;
-                }
-                return JSON.stringify(notification);
-            });
-            await this.redisService.del(notificationKey);
-            if (updatedNotifications.length > 0) {
-                await this.redisService.lpush(notificationKey, ...updatedNotifications);
-            }
-        }
-        catch (error) {
-            console.error('Error marking notification as read:', error);
-        }
-    }
-};
-exports.NotificationService = NotificationService;
-exports.NotificationService = NotificationService = __decorate([
-    (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [typeof (_a = typeof redis_service_1.RedisService !== "undefined" && redis_service_1.RedisService) === "function" ? _a : Object])
-], NotificationService);
-
+module.exports = require("multer");
 
 /***/ }),
+/* 37 */
+/***/ ((module) => {
 
-/***/ "./src/common/services/rating.service.ts":
-/*!***********************************************!*\
-  !*** ./src/common/services/rating.service.ts ***!
-  \***********************************************/
+module.exports = require("fs");
+
+/***/ }),
+/* 38 */
+/***/ ((module) => {
+
+module.exports = require("uuid");
+
+/***/ }),
+/* 39 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -2489,9 +2755,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RatingService = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const prisma_service_1 = __webpack_require__(/*! ../../prisma/prisma.service */ "./src/prisma/prisma.service.ts");
-const client_1 = __webpack_require__(/*! @prisma/client */ "@prisma/client");
+const common_1 = __webpack_require__(2);
+const prisma_service_1 = __webpack_require__(11);
+const client_1 = __webpack_require__(12);
 let RatingService = class RatingService {
     constructor(prisma) {
         this.prisma = prisma;
@@ -2752,11 +3018,7 @@ exports.RatingService = RatingService = __decorate([
 
 
 /***/ }),
-
-/***/ "./src/prisma/prisma.module.ts":
-/*!*************************************!*\
-  !*** ./src/prisma/prisma.module.ts ***!
-  \*************************************/
+/* 40 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -2767,247 +3029,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PrismaModule = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const prisma_service_1 = __webpack_require__(/*! ./prisma.service */ "./src/prisma/prisma.service.ts");
-let PrismaModule = class PrismaModule {
+exports.SocketModule = void 0;
+const common_1 = __webpack_require__(2);
+const socket_gateway_1 = __webpack_require__(41);
+const auth_module_1 = __webpack_require__(16);
+const chat_module_1 = __webpack_require__(25);
+const redis_module_1 = __webpack_require__(13);
+const common_module_1 = __webpack_require__(34);
+let SocketModule = class SocketModule {
 };
-exports.PrismaModule = PrismaModule;
-exports.PrismaModule = PrismaModule = __decorate([
+exports.SocketModule = SocketModule;
+exports.SocketModule = SocketModule = __decorate([
     (0, common_1.Module)({
-        providers: [prisma_service_1.PrismaService],
-        exports: [prisma_service_1.PrismaService],
+        imports: [auth_module_1.AuthModule, chat_module_1.ChatModule, redis_module_1.RedisModule, common_module_1.CommonModule],
+        providers: [socket_gateway_1.SocketGateway],
+        exports: [socket_gateway_1.SocketGateway],
     })
-], PrismaModule);
+], SocketModule);
 
 
 /***/ }),
-
-/***/ "./src/prisma/prisma.service.ts":
-/*!**************************************!*\
-  !*** ./src/prisma/prisma.service.ts ***!
-  \**************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PrismaService = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const client_1 = __webpack_require__(/*! @prisma/client */ "@prisma/client");
-let PrismaService = class PrismaService extends client_1.PrismaClient {
-    async onModuleInit() {
-        await this.$connect();
-    }
-    async onModuleDestroy() {
-        await this.$disconnect();
-    }
-    async enableShutdownHooks(app) {
-        this.$on('beforeExit', async () => {
-            await app.close();
-        });
-    }
-    async cleanDatabase() {
-        if (process.env.NODE_ENV === 'production')
-            return;
-        const tablenames = await this.$queryRaw `
-      SELECT tablename FROM pg_tables WHERE schemaname='public'
-    `;
-        const tables = tablenames
-            .map(({ tablename }) => tablename)
-            .filter((name) => name !== '_prisma_migrations')
-            .map((name) => `"public"."${name}"`)
-            .join(', ');
-        try {
-            await this.$executeRawUnsafe(`TRUNCATE TABLE ${tables} CASCADE;`);
-        }
-        catch (error) {
-            console.log({ error });
-        }
-    }
-};
-exports.PrismaService = PrismaService;
-exports.PrismaService = PrismaService = __decorate([
-    (0, common_1.Injectable)()
-], PrismaService);
-
-
-/***/ }),
-
-/***/ "./src/redis/redis.module.ts":
-/*!***********************************!*\
-  !*** ./src/redis/redis.module.ts ***!
-  \***********************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.RedisModule = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const config_1 = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-const redis_service_1 = __webpack_require__(/*! ./redis.service */ "./src/redis/redis.service.ts");
-let RedisModule = class RedisModule {
-};
-exports.RedisModule = RedisModule;
-exports.RedisModule = RedisModule = __decorate([
-    (0, common_1.Module)({
-        providers: [redis_service_1.RedisService, config_1.ConfigService],
-        exports: [redis_service_1.RedisService],
-    })
-], RedisModule);
-
-
-/***/ }),
-
-/***/ "./src/redis/redis.service.ts":
-/*!************************************!*\
-  !*** ./src/redis/redis.service.ts ***!
-  \************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var _a;
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.RedisService = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const config_1 = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-const ioredis_1 = __webpack_require__(/*! ioredis */ "ioredis");
-let RedisService = class RedisService {
-    constructor(configService) {
-        this.configService = configService;
-        const redisConfig = {
-            host: this.configService.get('REDIS_HOST', 'localhost'),
-            port: parseInt(this.configService.get('REDIS_PORT', '6379')),
-            password: this.configService.get('REDIS_PASSWORD'),
-            retryDelayOnFailover: 100,
-            maxRetriesPerRequest: 3,
-        };
-        this.client = new ioredis_1.default(redisConfig);
-        this.subscriber = new ioredis_1.default(redisConfig);
-        this.publisher = new ioredis_1.default(redisConfig);
-        this.client.on('error', (err) => {
-            console.error('Redis Client Error:', err);
-        });
-        this.client.on('connect', () => {
-            console.log('✅ Connected to Redis');
-        });
-    }
-    onModuleDestroy() {
-        this.client.disconnect();
-        this.subscriber.disconnect();
-        this.publisher.disconnect();
-    }
-    getClient() {
-        return this.client;
-    }
-    getSubscriber() {
-        return this.subscriber;
-    }
-    getPublisher() {
-        return this.publisher;
-    }
-    async setSession(key, value, ttl) {
-        const serialized = JSON.stringify(value);
-        if (ttl) {
-            await this.client.setex(key, ttl, serialized);
-        }
-        else {
-            await this.client.set(key, serialized);
-        }
-    }
-    async getSession(key) {
-        const value = await this.client.get(key);
-        return value ? JSON.parse(value) : null;
-    }
-    async deleteSession(key) {
-        await this.client.del(key);
-    }
-    async set(key, value, ttl) {
-        const serialized = JSON.stringify(value);
-        if (ttl) {
-            await this.client.setex(key, ttl, serialized);
-        }
-        else {
-            await this.client.set(key, serialized);
-        }
-    }
-    async get(key) {
-        const value = await this.client.get(key);
-        return value ? JSON.parse(value) : null;
-    }
-    async del(key) {
-        await this.client.del(key);
-    }
-    async lpush(key, ...values) {
-        return this.client.lpush(key, ...values);
-    }
-    async lrange(key, start, stop) {
-        return this.client.lrange(key, start, stop);
-    }
-    async ltrim(key, start, stop) {
-        await this.client.ltrim(key, start, stop);
-    }
-    async publish(channel, message) {
-        return this.publisher.publish(channel, message);
-    }
-    async subscribe(channel, callback) {
-        await this.subscriber.subscribe(channel);
-        this.subscriber.on('message', (receivedChannel, message) => {
-            if (receivedChannel === channel) {
-                callback(message);
-            }
-        });
-    }
-    async unsubscribe(channel) {
-        await this.subscriber.unsubscribe(channel);
-    }
-    async addToSet(key, value) {
-        await this.client.sadd(key, value);
-    }
-    async removeFromSet(key, value) {
-        await this.client.srem(key, value);
-    }
-    async getSetMembers(key) {
-        return this.client.smembers(key);
-    }
-    async isSetMember(key, value) {
-        const result = await this.client.sismember(key, value);
-        return result === 1;
-    }
-};
-exports.RedisService = RedisService;
-exports.RedisService = RedisService = __decorate([
-    (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [typeof (_a = typeof config_1.ConfigService !== "undefined" && config_1.ConfigService) === "function" ? _a : Object])
-], RedisService);
-
-
-/***/ }),
-
-/***/ "./src/socket/socket.gateway.ts":
-/*!**************************************!*\
-  !*** ./src/socket/socket.gateway.ts ***!
-  \**************************************/
+/* 41 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -3026,18 +3068,18 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var _a, _b, _c, _d, _e, _f, _g, _h;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SocketGateway = void 0;
-const websockets_1 = __webpack_require__(/*! @nestjs/websockets */ "@nestjs/websockets");
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const socket_io_1 = __webpack_require__(/*! socket.io */ "socket.io");
-const jwt_1 = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
-const auth_service_1 = __webpack_require__(/*! ../auth/auth.service */ "./src/auth/auth.service.ts");
-const chat_service_1 = __webpack_require__(/*! ../chat/chat.service */ "./src/chat/chat.service.ts");
-const message_service_1 = __webpack_require__(/*! ../chat/message.service */ "./src/chat/message.service.ts");
-const agent_service_1 = __webpack_require__(/*! ../chat/agent.service */ "./src/chat/agent.service.ts");
-const redis_service_1 = __webpack_require__(/*! ../redis/redis.service */ "./src/redis/redis.service.ts");
-const notification_service_1 = __webpack_require__(/*! ../common/services/notification.service */ "./src/common/services/notification.service.ts");
-const chat_resolver_1 = __webpack_require__(/*! ../chat/chat.resolver */ "./src/chat/chat.resolver.ts");
-const client_1 = __webpack_require__(/*! @prisma/client */ "@prisma/client");
+const websockets_1 = __webpack_require__(42);
+const common_1 = __webpack_require__(2);
+const socket_io_1 = __webpack_require__(43);
+const jwt_1 = __webpack_require__(17);
+const auth_service_1 = __webpack_require__(19);
+const chat_service_1 = __webpack_require__(26);
+const message_service_1 = __webpack_require__(32);
+const agent_service_1 = __webpack_require__(33);
+const redis_service_1 = __webpack_require__(14);
+const notification_service_1 = __webpack_require__(27);
+const chat_resolver_1 = __webpack_require__(28);
+const client_1 = __webpack_require__(12);
 let SocketGateway = class SocketGateway {
     constructor(jwtService, authService, chatService, messageService, agentService, redisService, notificationService) {
         this.jwtService = jwtService;
@@ -3392,243 +3434,25 @@ exports.SocketGateway = SocketGateway = __decorate([
 
 
 /***/ }),
-
-/***/ "./src/socket/socket.module.ts":
-/*!*************************************!*\
-  !*** ./src/socket/socket.module.ts ***!
-  \*************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SocketModule = void 0;
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const socket_gateway_1 = __webpack_require__(/*! ./socket.gateway */ "./src/socket/socket.gateway.ts");
-const auth_module_1 = __webpack_require__(/*! ../auth/auth.module */ "./src/auth/auth.module.ts");
-const chat_module_1 = __webpack_require__(/*! ../chat/chat.module */ "./src/chat/chat.module.ts");
-const redis_module_1 = __webpack_require__(/*! ../redis/redis.module */ "./src/redis/redis.module.ts");
-const common_module_1 = __webpack_require__(/*! ../common/common.module */ "./src/common/common.module.ts");
-let SocketModule = class SocketModule {
-};
-exports.SocketModule = SocketModule;
-exports.SocketModule = SocketModule = __decorate([
-    (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule, chat_module_1.ChatModule, redis_module_1.RedisModule, common_module_1.CommonModule],
-        providers: [socket_gateway_1.SocketGateway],
-        exports: [socket_gateway_1.SocketGateway],
-    })
-], SocketModule);
-
-
-/***/ }),
-
-/***/ "@nestjs/apollo":
-/*!*********************************!*\
-  !*** external "@nestjs/apollo" ***!
-  \*********************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/apollo");
-
-/***/ }),
-
-/***/ "@nestjs/common":
-/*!*********************************!*\
-  !*** external "@nestjs/common" ***!
-  \*********************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/common");
-
-/***/ }),
-
-/***/ "@nestjs/config":
-/*!*********************************!*\
-  !*** external "@nestjs/config" ***!
-  \*********************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/config");
-
-/***/ }),
-
-/***/ "@nestjs/core":
-/*!*******************************!*\
-  !*** external "@nestjs/core" ***!
-  \*******************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/core");
-
-/***/ }),
-
-/***/ "@nestjs/graphql":
-/*!**********************************!*\
-  !*** external "@nestjs/graphql" ***!
-  \**********************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/graphql");
-
-/***/ }),
-
-/***/ "@nestjs/jwt":
-/*!******************************!*\
-  !*** external "@nestjs/jwt" ***!
-  \******************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/jwt");
-
-/***/ }),
-
-/***/ "@nestjs/passport":
-/*!***********************************!*\
-  !*** external "@nestjs/passport" ***!
-  \***********************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/passport");
-
-/***/ }),
-
-/***/ "@nestjs/platform-socket.io":
-/*!*********************************************!*\
-  !*** external "@nestjs/platform-socket.io" ***!
-  \*********************************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/platform-socket.io");
-
-/***/ }),
-
-/***/ "@nestjs/schedule":
-/*!***********************************!*\
-  !*** external "@nestjs/schedule" ***!
-  \***********************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/schedule");
-
-/***/ }),
-
-/***/ "@nestjs/throttler":
-/*!************************************!*\
-  !*** external "@nestjs/throttler" ***!
-  \************************************/
-/***/ ((module) => {
-
-module.exports = require("@nestjs/throttler");
-
-/***/ }),
-
-/***/ "@nestjs/websockets":
-/*!*************************************!*\
-  !*** external "@nestjs/websockets" ***!
-  \*************************************/
+/* 42 */
 /***/ ((module) => {
 
 module.exports = require("@nestjs/websockets");
 
 /***/ }),
-
-/***/ "@prisma/client":
-/*!*********************************!*\
-  !*** external "@prisma/client" ***!
-  \*********************************/
-/***/ ((module) => {
-
-module.exports = require("@prisma/client");
-
-/***/ }),
-
-/***/ "graphql-subscriptions":
-/*!****************************************!*\
-  !*** external "graphql-subscriptions" ***!
-  \****************************************/
-/***/ ((module) => {
-
-module.exports = require("graphql-subscriptions");
-
-/***/ }),
-
-/***/ "ioredis":
-/*!**************************!*\
-  !*** external "ioredis" ***!
-  \**************************/
-/***/ ((module) => {
-
-module.exports = require("ioredis");
-
-/***/ }),
-
-/***/ "multer":
-/*!*************************!*\
-  !*** external "multer" ***!
-  \*************************/
-/***/ ((module) => {
-
-module.exports = require("multer");
-
-/***/ }),
-
-/***/ "passport-jwt":
-/*!*******************************!*\
-  !*** external "passport-jwt" ***!
-  \*******************************/
-/***/ ((module) => {
-
-module.exports = require("passport-jwt");
-
-/***/ }),
-
-/***/ "socket.io":
-/*!****************************!*\
-  !*** external "socket.io" ***!
-  \****************************/
+/* 43 */
 /***/ ((module) => {
 
 module.exports = require("socket.io");
 
 /***/ }),
-
-/***/ "uuid":
-/*!***********************!*\
-  !*** external "uuid" ***!
-  \***********************/
+/* 44 */
 /***/ ((module) => {
 
-module.exports = require("uuid");
-
-/***/ }),
-
-/***/ "fs":
-/*!*********************!*\
-  !*** external "fs" ***!
-  \*********************/
-/***/ ((module) => {
-
-module.exports = require("fs");
-
-/***/ }),
-
-/***/ "path":
-/*!***********************!*\
-  !*** external "path" ***!
-  \***********************/
-/***/ ((module) => {
-
-module.exports = require("path");
+module.exports = require("@nestjs/platform-socket.io");
 
 /***/ })
-
-/******/ 	});
+/******/ 	]);
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -3659,17 +3483,14 @@ var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
 var exports = __webpack_exports__;
-/*!*********************!*\
-  !*** ./src/main.ts ***!
-  \*********************/
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core_1 = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
-const common_1 = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-const config_1 = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
-const app_module_1 = __webpack_require__(/*! ./app.module */ "./src/app.module.ts");
-const prisma_service_1 = __webpack_require__(/*! ./prisma/prisma.service */ "./src/prisma/prisma.service.ts");
-const platform_socket_io_1 = __webpack_require__(/*! @nestjs/platform-socket.io */ "@nestjs/platform-socket.io");
+const core_1 = __webpack_require__(1);
+const common_1 = __webpack_require__(2);
+const config_1 = __webpack_require__(3);
+const app_module_1 = __webpack_require__(4);
+const prisma_service_1 = __webpack_require__(11);
+const platform_socket_io_1 = __webpack_require__(44);
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const configService = app.get(config_1.ConfigService);
